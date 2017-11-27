@@ -59,3 +59,8 @@ Providing an [AppImage](http://appimage.org/) for distributing application has, 
 [Here is an overview](https://appimage.github.io/apps) of projects that are already distributing upstream-provided, official AppImages.
 
 If you have questions, AppImage developers are on #AppImage on irc.freenode.net.
+
+---
+### 目录
+1. [AppImage中文文档](aaa_index.md)
+2. [什么是AppImage？](appimage.md)

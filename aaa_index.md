@@ -21,3 +21,8 @@ Each document has the Chinese text (translated using Google Translate) on top, a
 If something still is unclear, don't be afraid to ask questions. Parts of the documentation may already be outdated since AppImage development happens very fast.
 
 Thank you very much.
+
+---
+### 目录
+1. [AppImage中文文档](aaa_index.md)
+2. [什么是AppImage？](appimage.md)
