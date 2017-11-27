@@ -6,7 +6,7 @@ https://en.wikipedia.org/wiki/AppImage
 
 __AppImageKit__ 是AppImage的构建工具包，提供了`appimagetool`和`appimaged`等工具来方便地处理AppImage。
 
-`appimagetool`将AppDir转换成自挂载的文件系统镜像。 `appimaged`是一个守护进程，用于处理AppImage与系统（菜单条目，图标，MIME类型，二进制增量更新等）的注册或注销。
+`appimagetool`将AppDir目录转换成自挂载的文件系统镜像。 `appimaged`是一个守护进程，用于处理AppImage与系统（菜单条目，图标，MIME类型，二进制增量更新等）的注册或注销。
 
 提供[[AppImage](http://appimage.org/)]格式的包用于分发应用相对于其他格式，具有以下优点：
 - 使用AppImage打包的应用程序可以在许多发行版上运行（包括Ubuntu，Fedora，openSUSE，CentOS，basicOS，Linux Mint等）
