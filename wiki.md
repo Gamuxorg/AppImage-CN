@@ -1,6 +1,6 @@
 # AppImageKit Wiki
 
-每个人都可以在https://github.com/AppImage/AppImageKit编辑wiki
+每个人都可以在https://github.com/AppImage/AppImageKit 编辑wiki
 
 ## 对于用户
 
