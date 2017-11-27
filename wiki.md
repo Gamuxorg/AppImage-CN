@@ -14,7 +14,7 @@ AppImage是一个可下载的Linux文件，其中包含一个应用程序和应�
 
 ### 如何将AppImage集成到系统里？
 
-使用可选的`appimaged`守护进程，可以轻松地将AppImage与系统集成。守护进程将AppImages为创建菜单，注册MIME类型，图标，所有一切都可以自动完成。你可以从这个仓库下载它，但它并不是必需的。
+使用可选的`appimaged`守护进程，可以轻松地将AppImage与系统集成。守护进程将为AppImages创建菜单，注册MIME类型，图标，所有一切都可以自动完成。你可以从这个仓库下载它，但它并不是必需的。
 
 ### 哪里可以下载AppImages？
 查看[AppImageHub](https://appimage.github.io/apps/)。
