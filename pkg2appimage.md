@@ -1,4 +1,4 @@
-##如果您已经有deb或ppa，请使用pkg2appimage工具
+## 如果您已经有deb或ppa，请使用pkg2appimage工具
 
 有[多种方法](https://github.com/probonopd/AppImageKit/wiki/Creating-AppImages)生成AppImages。如果你已经有了二进制文件（无论是归档文件还是`.deb`格式亦或ppa），那么将这些二进制文件转换为AppImage的推荐方法是编写一个[.yml描述文件](https://github.com/AppImage/AppImages/tree/master/recipes)并使用[pkg2appimage](https://github.com/AppImage/AppImages/tree/master/pkg2appimage)运行它：
 
