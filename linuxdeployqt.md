@@ -10,11 +10,11 @@
 
 ## 已知的问题
 
-__这可能还没有完全正常工作.__有关已知问题，请参见[GitHub问题]（https://github.com/probonopd/linuxdeployqt/issues）。小心使用，以最大的冗长度运行，提交问题并提出请求。帮助表示赞赏。
+__这可能还没有完全正常工作.__有关已知问题，请参见[GitHub问题]（https://github.com/probonopd/linuxdeployqt/issues）。谨慎使用，以最大的冗长度运行，提交问题并提出请求。对帮助表示感谢。
 
 ##安装
 
-请从[Releases]（https://github.com/probonopd/linuxdeployqt/releases）页面下载__linuxdeployqt-x86_64.AppImage__并且运行`chmod a + x`。如果您想源码编译生成`linuxdeployqt`，请参阅[BUILDING.md]（https://github.com/probonopd/linuxdeployqt/blob/master/BUILDING.md）。
+请从[Releases]（https://github.com/probonopd/linuxdeployqt/releases）页面下载__linuxdeployqt-x86_64.AppImage__并且运行`chmod a + x`如果您想源码编译生成 `linuxdeployqt`，请参阅[BUILDING.md]（https://github.com/probonopd/linuxdeployqt/blob/master/BUILDING.md）。
 
 ##用法
 
@@ -54,7 +54,7 @@ _desktop_指定要运行的可执行文件（带有`EXEC =`），应用程序的
 
 #### QMake配置
 
-__重要：__默认情况下，`linuxdeployqt`部署$ PATH指向的qmake指向Qt实例，所以确保它是正确的。在运行`linuxdeployqt`工具之前，验证qmake是否找到了正确的Qt实例：
+__重要：__默认情况下，`linuxdeployqt`部署$PATH指向的qmake指向Qt实例，所以确保它是正确的。在运行`linuxdeployqt`工具之前，验证qmake是否找到了正确的Qt实例：
 
 ```
 qmake -v
@@ -63,7 +63,7 @@ QMake版本3.0
 在 /tmp/.mount_QtCreator-5.7.0-x86_64/5.7/gcc_64/lib 中使用5.7.0的Qt版本
 ```
 
-如果这并没有显示你想绑定的Qt实例的正确路径，那么调整你的`$ PATH`来找到正确的`qmake`。
+如果这并没有显示你想绑定的Qt实例的正确路径，那么调整你的`$PATH`来找到正确的`qmake`。
 
 或者，使用`-qmake`命令行选项将工具直接指向要使用的qmake可执行文件。
 
@@ -72,10 +72,10 @@ QMake版本3.0
 在运行linuxdeployqt之前，删除不希望从构建目录分发的不需要的文件或许是明智的做法。这些可能会在构建过程中自动生成。你可以像这样删除它们：
 
 ```
-找到$ HOME / build - * - * _ Qt_ * \（-name“moc_ *” - or - “* .o” - or - “qrc_ *” - or - name“Makefile *” - or - name “* .a“\）-exec rm {} \;
+find $HOME /build - * - * _ Qt_ * \（-name“moc_ *” - or - “* .o” - or - “qrc_ *” - or - name“Makefile *” - or - name “* .a“\）-exec rm {} \;
 ```
 
-另外，你可以使用`$ DESTDIR`。
+另外，你可以使用`$DESTDIR`。
 
 ##使用Linuxdeployqt与Travis CI
 
