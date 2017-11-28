@@ -1,6 +1,6 @@
 # AppImageKit Wiki
 
-每个人都可以在https://github.com/AppImage/AppImageKit 编辑wiki
+每个人都可以在 https://github.com/AppImage/AppImageKit 编辑wiki
 
 ## 对于用户
 
@@ -27,11 +27,11 @@ AppImage是一个可下载的Linux文件，其中包含一个应用程序和应�
 此外，存储任何其他位置也是可以，例如U盘，网络位置或光盘，但是这样AppImages不会在路径中，这意味着你不能简单地在终端输入应用名来运行，而必须使用完整的路径。
 
 ### 我可以在哪里请求AppImages？
-如果您想运行的应用没有AppImage格式，请您向该应用的作者请求，例如您可以使用应用的问题反馈进行功能请求。举个例子，如果您想要Mozilla Firefox的AppImage版本，请在https://bugzilla.mozilla.org/show_bug.cgi?id=1249971 上留言。从上游作者请求AppImage的人越多，则提供AppImage的可能性就越大。
+如果您想运行的应用没有AppImage格式，请您向该应用的作者请求，例如您可以使用应用的问题反馈进行功能请求。举个例子，如果您想要Mozilla Firefox的AppImage版本，请在 https://bugzilla.mozilla.org/show_bug.cgi?id=1249971 上留言。从上游作者请求AppImage的人越多，则提供AppImage的可能性就越大。
 
 ### 我在哪里可以得到支持？
 
-请访问http://discourse.appimage.org/ 。您可以使用现有的Google或GitHub帐户登录，无需注册。
+请访问 http://discourse.appimage.org/ 。您可以使用现有的Google或GitHub帐户登录，无需注册。
 
 ## 对于应用程序开发者
 
@@ -58,7 +58,7 @@ AppImage是一个可下载的Linux文件，其中包含一个应用程序和应�
 4.使用electron-builder，或者
 5.自己编写
 
-更多详情和示例，请参见https://github.com/probonopd/AppImageKit/wiki/Creating-AppImages 。
+更多详情和示例，请参见 https://github.com/probonopd/AppImageKit/wiki/Creating-AppImages 
 
 ### 我如何获得支持来帮助打包自己的应用成AppImage？
 
