@@ -2,7 +2,7 @@
 
 运行一个AppImage挂载文件系统映像，并透明地运行包含的应用程序。所以AppImage的使用通常应该等于它包含的应用程序的使用。但是，这里有特殊的功能。如果您收到的AppImgae不支持这些选项，请让AppImage的作者使用最新的`appimagetool`（或`linuxdeployqt`）重新创建它。
 
-###命令行参数
+### 命令行参数
 
 如果使用这些特殊的命令行参数中的一个调用由最近版本的AppImageKit构建的AppImage，那么AppImage的行为将有所不同：
 
@@ -14,7 +14,7 @@
 - “--appimage-updateinformation”打印嵌入到AppImage中的更新信息，然后退出。这对调试二进制增量更新非常有用
 - `--appimage-signature`打印嵌入到AppImage中的数字签名，然后退出。这对调试二进制增量更新非常有用。如果您想验证嵌入式签名，则应使用属于AppImageKit一部分的“验证”命令行工具
 
-###特殊的目录
+### 特殊的目录
 
 通常情况下，包含在AppImage中的应用程序将存储它的配置文件，无论它通常存储在哪里（最常见的是在$ HOME中的某处）。如果您调用由最近版本的AppImageKit构建的AppImage，并且具有这些特殊目录之一，那么配置文件将与AppImage一起存储。这对于便携式使用情况是有用的，例如，在USB记忆棒上携带AppImage以及其数据。
 
