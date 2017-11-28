@@ -1,11 +1,11 @@
 ## appimaged用法
 
-`appimaged`是一个可选的守护进程，用于监视AppImages的`〜/ bin`和`〜/ Downloads`等位置，如果检测到某些守护进程，则将其注册到系统中，以便它们显示在菜单中，使其图标显示，关联的MIME类型等等。如果它们被删除，它也从系统中再次注销AppImages。如果安装了[firejail](https://github.com/netblue30/firejail)，则会运行AppImage。
+`appimaged`是一个可选的守护进程，用于监视AppImages的`~/bin`和`~/Downloads`等位置，如果检测到某些守护进程，则将其注册到系统中，以便它们显示在菜单中，使其图标显示，关联的MIME类型等等。如果它们被删除，它也从系统中再次注销AppImages。如果安装了[firejail](https://github.com/netblue30/firejail)，则会运行AppImage。
 
 预编译版本可以在上次成功的Travis CI版本中找到，您可以通过以下方式获得：
 
 ```
-wget“https://github.com/AppImage/AppImageKit/releases/download/continuous/appimaged-x86_64.AppImage”
+wget "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimaged-x86_64.AppImage"
 chmod a + x appimaged-x86_64.AppImage
 ```
 
@@ -15,13 +15,13 @@ chmod a + x appimaged-x86_64.AppImage
 ./appimaged-x86_64.AppImage --install
 ```
 
-或者，如果您使用的是基于deb的系统：
+或者，如果您使用的是基于deb包管理的系统：
 
 ```
-wget -c“https://github.com/AppImage/AppImageKit/releases/download/continuous/appimaged_1.0_amd64.deb”
-sudo dpkg -i appimaged _ *。deb
-systemctl --user启用appimaged
-systemctl --user启动appimaged
+wget -c "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimaged_1.0_amd64.deb"
+sudo dpkg -i appimaged _ *.deb
+systemctl --user enable appimaged
+systemctl --user start appimaged
 ```
 
 它将从以下位置在您的系统中注册AppImages：
@@ -43,27 +43,27 @@ systemctl --user启动appimaged
   appimaged [选项...]
 
 帮助选项：
-  -h，--help显示帮助选项
+  -h,--help 显示帮助选项
 
 应用选项：
-  -v，--verbose冗长
-  -i，--install将这个appimaged实例安装到$ HOME
-  -u，--uninstall从$ HOME中卸载一个appimaged实例
-  --version显示版本号
+  -v,--verbose 冗长
+  -i,--install 将这个appimaged实例安装到$HOME
+  -u,--uninstall 从$HOME中卸载一个appimaged实例
+  --version 显示版本号
 
 ```
 
-__注意：__可能需要重新启动（或者`xkill`）dash，nautilus来识别第一次运行`appimaged`之前不存在的新目录。或者，只要运行一次应用程序就可以退出会话并重新登录。
+__注意：__可能需要重新启动（或者`xkill`）dash命令行，nautilus来识别第一次运行`appimaged`之前不存在的新目录。或者，只要运行一次应用程序就可以退出会话并重新登录。
 
-如果你的`$ PATH`上有`AppImageUpdate`，那么它也可以做到这一点：
+如果你的`$PATH`上有`AppImageUpdate`，那么它也可以做到这一点：
 
 ![截图从2016-10-15 16-37-05](https://cloud.githubusercontent.com/assets/2480569/19410850/0390fe9c-92f6-11e6-9882-3ca6d360a190.jpg)
 
-从https://github.com/AppImage/AppImageUpdate/releases/download/continuous/下载AppImageUpdate并放在你的`$ PATH`上：
+从 https://github.com/AppImage/AppImageUpdate/releases/download/continuous/ 上下载AppImageUpdate 并放在你的`$ PATH`上：
 
 ```
-sudo mv“Downloads / AppImageUpdate - *。AppImage”/ usr / local / bin / AppImageUpdate
-chmod a + x / usr / local / bin / AppImageUpdate
+sudo mv "Downloads/AppImageUpdate - *.AppImage"/usr/local/bin/AppImageUpdate
+chmod a + x /usr/local/bin/AppImageUpdate
 ```
 
 ## appimaged usage
