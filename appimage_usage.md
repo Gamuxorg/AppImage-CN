@@ -1,6 +1,6 @@
 ## AppImage的用法
 
-运行一个AppImage挂载文件系统映像，并透明地运行包含的应用程序。所以AppImage的使用通常应该等于它包含的应用程序的使用。但是，这里有特殊的功能。如果您收到的AppImgae不支持这些选项，请让AppImage的作者使用最新的`appimagetool`（或`linuxdeployqt`）重新创建它。
+运行一个AppImage将会挂载文件系统映像，并透明地运行包含的应用程序。所以AppImage的使用通常应该等于它包含的应用程序的使用。但是，这里有特殊的功能。如果您收到的AppImgae不支持这些选项，请让AppImage的作者使用最新的`appimagetool`（或`linuxdeployqt`）重新创建它。
 
 ### 命令行参数
 
@@ -11,7 +11,7 @@
 - `--appimage-extract`从嵌入的文件系统映像中提取内容，然后退出。如果您在FUSE不可用的系统上使用AppImage，这非常有用
 - `--appimage-mount`挂载嵌入式文件系统映像并打印挂载点，然后等待直到它被杀死。如果您想检查AppImage的内容而不执行包含的有效载荷应用程序，这非常有用
 - `--appimage-version`打印AppImageKit的版本，然后退出。如果您想提出问题，这很有用
-- `--appimage-updateinformation”`打印嵌入到AppImage中的更新信息，然后退出。这对调试二进制增量更新非常有用
+- `--appimage-updateinformation`打印嵌入到AppImage中的更新信息，然后退出。这对调试二进制增量更新非常有用
 - `--appimage-signature`打印嵌入到AppImage中的数字签名，然后退出。这对调试二进制增量更新非常有用。如果您想验证嵌入式签名，则应使用属于AppImageKit一部分的“验证”命令行工具
 
 ### 特殊的目录
