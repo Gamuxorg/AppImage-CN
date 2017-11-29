@@ -1,20 +1,20 @@
 # linuxdeployqt
 
-这个基于Qt的Linux部署工具`linuxdeployqt`，将一个应用程序作为输入，并通过在应用程序使用的Qt库和插件中进行复制来使它包含自己。这可以选择性地放在[AppImage]（http://appimage.org/）中，并使用[fpm]（https://github.com/probonopd/linuxdeployqt/issues/9）跨平台的deb和rpm包。
+这个基于Qt的Linux部署工具`linuxdeployqt`，将一个应用程序作为输入，并通过在应用程序使用的Qt库和插件中进行复制来使它包含自己。这可以选择性地放在[AppImage](http://appimage.org/)中，并使用[fpm](https://github.com/probonopd/linuxdeployqt/issues/9)跨平台的deb和rpm包。
 
 ##与macdeployqt的差异
-这个工具在概念上基于Qt工具包中的的[Mac部署工具]（http://doc.qt.io/qt-5/osx-deployment.html），macdeployqt，但是改变了略微不同的逻辑和Linux所需的其他工具。
+这个工具在概念上基于Qt工具包中的的[Mac部署工具](http://doc.qt.io/qt-5/osx-deployment.html)，macdeployqt，但是改变了略微不同的逻辑和Linux所需的其他工具。
 
-* 代替macOS的`.app`包，这会为Linux生成一个[AppDir]（http://rox.sourceforge.net/desktop/AppDirs.html）
-* 代替macOS的`.dmg`磁盘映像，这会产生一个Linux的[AppImage]（http://appimage.org/），与dmg非常相似，但执行包含的应用程序，而不是只打开一个窗口应用程序可以从哪里启动的桌面
+* 代替macOS的`.app`包，这会为Linux生成一个[AppDir](http://rox.sourceforge.net/desktop/AppDirs.html)
+* 代替macOS的`.dmg`磁盘映像，这会产生一个Linux的[AppImage](http://appimage.org/)，与dmg非常相似，但执行包含的应用程序，而不是只打开一个窗口应用程序可以从哪里启动的桌面
 
 ## 已知的问题
 
-__这可能还没有完全正常工作.__有关已知问题，请参见[GitHub问题]（https://github.com/probonopd/linuxdeployqt/issues）。谨慎使用，以最大的冗长度运行，提交问题并提出请求。对帮助表示感谢。
+__这可能还没有完全正常工作.__有关已知问题，请参见[GitHub问题](https://github.com/probonopd/linuxdeployqt/issues)。谨慎使用，以最大的冗长度运行，提交问题并提出请求。对帮助表示感谢。
 
 ##安装
 
-请从[Releases]（https://github.com/probonopd/linuxdeployqt/releases）页面下载__linuxdeployqt-x86_64.AppImage__并且运行`chmod a + x`如果您想源码编译生成 `linuxdeployqt`，请参阅[BUILDING.md]（https://github.com/probonopd/linuxdeployqt/blob/master/BUILDING.md）。
+请从[Releases](https://github.com/probonopd/linuxdeployqt/releases)页面下载__linuxdeployqt-x86_64.AppImage__并且运行`chmod a + x`如果您想源码编译生成 `linuxdeployqt`，请参阅[BUILDING.md](https://github.com/probonopd/linuxdeployqt/blob/master/BUILDING.md)。
 
 ##用法
 
@@ -31,24 +31,24 @@ __这可能还没有完全正常工作.__有关已知问题，请参见[GitHub�
    -qmldir = <path>：扫描QML导入用来从给定目录中捆绑，使用Qt的qmlimportscanner
    -always-overwrite：即使目标文件存在，也可以复制文件
    -qmake = <path>：使用qmake的可执行文件
-    -no-translations：跳过部署翻译
+   -no-translations：跳过部署翻译
 
 linuxdeployqt将一个self-contained(自包含)应用程序作为输入并使之生效
 通过在Qt库和插件中复制应用程序使用。
 ```
 
-####最简单的例子
+#### 最简单的例子
 
 鉴于桌面文件应该提供一个AppImage，`linuxdeployqt`可以使用它来确定构建的参数。
 
 `linuxdeployqt ./path/to/appdir/usr/share/application_name.desktop`
 
 _desktop_指定要运行的可执行文件（带有`EXEC =`），应用程序的名称和图标。
-请参阅[桌面文件规范]（https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html）。
+请参阅[桌面文件规范](https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html)。
 
 有关更详细的示例，请参阅下面的“使用Linuxdeployqt与Travis CI”。
 
-####检查库包含
+#### 检查库包含
 
 在Qt Creator中打开并构建您的应用程序。使用命令行运行它，并用`ldd`来检查它，以确保从正确的位置的正确的库被加载，因为`linuxdeployqt`将在内部使用`ldd`来确定从哪里将库复制到bundle中。
 
@@ -67,7 +67,7 @@ QMake版本3.0
 
 或者，使用`-qmake`命令行选项将工具直接指向要使用的qmake可执行文件。
 
-####删除不必要的文件
+#### 删除不必要的文件
 
 在运行linuxdeployqt之前，删除不希望从构建目录分发的不需要的文件或许是明智的做法。这些可能会在构建过程中自动生成。你可以像这样删除它们：
 
@@ -120,7 +120,7 @@ branches:
 
 当你保存你的更改时，Travis CI会为你创建并上传一个AppImage。不过，可能一些微调仍然是必需的。
 
-为了达到这个目的，如果你还没有这样做，你需要为你的版本库启用Travis CI（https://travis-ci.org/getting_started）（https://travis-ci.org/getting_started）。
+为了达到这个目的，如果你还没有这样做，你需要为你的版本库启用[Travis CI](https://travis-ci.org/getting_started)。
 
 默认情况下，Qt Creator生成的qmake`.pro`文件不支持`make install`。在这种情况下，你会得到这样的错误:
 
@@ -192,7 +192,7 @@ __PLEASE注意：__为了这个工作，你需要为你的仓库启用Travis CI�
 ```
 ##使用linuxdeployqt的项目
 
-这些项目已经在使用[Travis CI]（http://travis-ci.org/）和linuxdeployqt来提供AppImage的构建：
+这些项目已经在使用[Travis CI](http://travis-ci.org/)和linuxdeployqt来提供AppImage的构建：
 - https://github.com/probonopd/ImageMagick
 - https://github.com/Subsurface-divelog/subsurface/
 - https://github.com/jimevins/glabels-qt
@@ -241,7 +241,7 @@ GitLab上的这个项目使用linuxdeployqt：
 
 ##贡献
 
-一个非常好的贡献方式就是是将合并请求发送到您希望使用linuxdeployqt的应用程序项目，如上所述。也欢迎您为linuxdeployqt开发本身作出贡献。请在[forum]（http://discourse.appimage.org/t/linuxdeployqt-new-linux-deployment-tool-for-qt/57）或使用GitHub问题和Pull Requests进行讨论。
+一个非常好的贡献方式就是是将合并请求发送到您希望使用linuxdeployqt的应用程序项目，如上所述。也欢迎您为linuxdeployqt开发本身作出贡献。请在[forum](http://discourse.appimage.org/t/linuxdeployqt-new-linux-deployment-tool-for-qt/57)或使用GitHub问题和Pull Requests进行讨论。
 
 ## 联系
 
