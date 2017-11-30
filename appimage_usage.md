@@ -1,25 +1,25 @@
 ## AppImage的用法
 
-运行一个AppImage将会挂载文件系统映像，并透明地运行包含的应用程序。所以AppImage的使用通常应该等于它包含的应用程序的使用。但是，这里有特殊的功能。如果您收到的AppImgae不支持这些选项，请让AppImage的作者使用最新的`appimagetool`（或`linuxdeployqt`）重新创建它。
+运行一个AppImage将会挂载文件系统镜像，并透明地运行包含的应用程序。所以AppImage的使用通常应该等于它包含的应用程序的使用。但是，如本文所说，他还有其他特殊功能。如果你收到的AppImgae不支持这些选项，请让AppImage的作者使用最新的`appimagetool`（或`linuxdeployqt`）重新构建。
 
 ### 命令行参数
 
-如果使用这些特殊的命令行参数中的一个调用由最近版本的AppImageKit构建的AppImage，那么AppImage的行为将有所不同：
+如果你运行一个由较新AppImageKit构建的AppImage并附加以下参数之一，那么AppImage的行为将有所不同：
 
-- `--appimage-help`打印帮助选项
-- `--appimage-offset`打印嵌入文件系统映像开始的偏移量，然后退出。如果你想使用`mount -o loop，offset=...`命令来循环挂载文件系统镜像，这很有用
-- `--appimage-extract`从嵌入的文件系统映像中提取内容，然后退出。如果您在FUSE不可用的系统上使用AppImage，这非常有用
-- `--appimage-mount`挂载嵌入式文件系统映像并打印挂载点，然后等待直到它被杀死。如果您想检查AppImage的内容而不执行包含的有效载荷应用程序，这非常有用
-- `--appimage-version`打印AppImageKit的版本，然后退出。如果您想提出问题，这很有用
-- `--appimage-updateinformation`打印嵌入到AppImage中的更新信息，然后退出。这对调试二进制增量更新非常有用
-- `--appimage-signature`打印嵌入到AppImage中的数字签名，然后退出。这对调试二进制增量更新非常有用。如果您想验证嵌入式签名，则应使用属于AppImageKit一部分的“验证”命令行工具
+- `--appimage-help` 打印帮助选项
+- `--appimage-offset` 打印文件系统镜像开始的偏移量，然后退出。如果你想使用`mount -o loop，offset=...` 命令来循环挂载文件系统镜像，这很有用
+- `--appimage-extract` 从文件系统镜像中提取内容，然后退出。如果你在不支持FUSE的系统上使用AppImage，这非常有用
+- `--appimage-mount` 挂载嵌入式文件系统镜像并打印挂载地址，然后等待直到结束。如果你想检查AppImage的内容而不执行包含的应用程序内容，这非常有用
+- `--appimage-version` 打印AppImageKit的版本，然后退出。当你需要提问的时候，这很有用
+- `--appimage-updateinformation` 打印AppImage中的更新信息，然后退出。这对调试增量更新非常有用
+- `--appimage-signature` 打印AppImage中的数字签名，然后退出。这对调试增量更新非常有用。如果你想验证此签名，则应使用AppImageKit的另一所属命令行工具 `validate`
 
 ### 特殊的目录
 
-通常情况下，包含在AppImage中的应用程序将存储它的配置文件，无论它通常存储在哪里（最常见的是在$ HOME中的某处）。如果您调用由最近版本的AppImageKit构建的AppImage，并且具有这些特殊目录之一，那么配置文件将与AppImage一起存储。这对于便携式使用情况是有用的，例如，在USB记忆棒上携带AppImage以及其数据。
+通常情况下，包含在AppImage中的应用程序将存储它的配置文件，无论它通常存储在哪里（最常见的是在$HOME中的某处）。如果你运行由较新AppImageKit构建的AppImage，并且存在以下特殊目录之一，那么配置文件将与AppImage一起存储。这对于便携式使用情况是有用的，例如，在USB记忆棒上携带AppImage以及其数据。
 
-- 如果有一个和AppImage同名的目录加`.home`，那么在执行净荷应用程序之前，会自动将$ HOME设置为它
-- 如果有一个和AppImage同名的目录加`.config`，那么在执行payload应用程序之前会自动设置$ XDG_CONFIG_HOME
+- 如果有一个和AppImage文件同名的目录名且加`.home`，那么在执行应用程序之前，会自动将$HOME设置为它
+- 如果有一个和AppImage文件同名的目录名且加`.config`，那么在执行应用程序之前，会自动将$XDG_CONFIG_HOME设置为它
 
 ## AppImage usage
 
