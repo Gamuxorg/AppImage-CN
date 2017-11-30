@@ -43,3 +43,9 @@ Normally the application contained inside an AppImage will store its configurati
 
 - If there is a directory with the same name as the AppImage plus `.home`, then `$HOME` will automatically be set to it before executing the payload application
 - If there is a directory with the same name as the AppImage plus `.config`, then `$XDG_CONFIG_HOME` will automatically be set to it before executing the payload application
+
+---
+### 目录
+1. [AppImage中文文档](aaa_index.md)
+2. [什么是AppImage？](appimage.md)
+3. [AppImage的使用方法](appimage_usage.md)

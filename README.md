@@ -4,6 +4,7 @@
 ## 目录
 1. [AppImage中文文档](aaa_index.md)
 2. [什么是AppImage？](appimage.md)
+3. [AppImage的使用方法](appimage_usage.md)
 
 ## 加入翻译
 1. pull requests
@@ -13,7 +14,7 @@
 ## AppImage社区
 1. IRC的Freenode服务器的#appimage频道
 2. QQ群274328087，中文AppImage爱好者组织。
-3. [官方AppImage论坛](https://discourse.appimage.org/)或[GitHub项目页](https://github.com/AppImage/AppImageKit)。
+3. [官方AppImage论坛](https://discourse.appimage.org/)或[官方GitHub项目页](https://github.com/AppImage/AppImageKit)。
 
 ## 文本协议
-中文文档经官方许可进行翻译，并按照官方要求使用MIT协议。
+本文档使用MIT协议。

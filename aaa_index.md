@@ -26,3 +26,4 @@ Thank you very much.
 ### 目录
 1. [AppImage中文文档](aaa_index.md)
 2. [什么是AppImage？](appimage.md)
+3. [AppImage的使用方法](appimage_usage.md)
