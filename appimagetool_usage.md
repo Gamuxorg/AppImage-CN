@@ -1,6 +1,6 @@
-## appimagetool用法
+## appimagetool使用方法
 
-`appimagetool`用于从现有的`AppDir`生成一个AppImage。一些更高级别的工具，如[`linuxdeployqt`](https://github.com/probonopd/linuxdeployqt)等也在使用它。预编译版本可以在[GitHub Releases](https://github.com/AppImage/AppImageKit/releases)上找到。
+`appimagetool`用于把现有的`AppDir(目录)`生成一个AppImage。一些更高级别的工具，如[`linuxdeployqt`](https://github.com/probonopd/linuxdeployqt)等也在使用它。预编译版本可以在[GitHub Releases](https://github.com/AppImage/AppImageKit/releases)上找到。
 
 ```
 wget "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage"
@@ -10,7 +10,7 @@ chmod a+x appimagetool-x86_64.AppImage
 简而言之，假设你已经有一个[AppDir](https://github.com/AppImage/AppImageSpec/blob/master/draft.md#appdir) ：
 
 ```
-./appimagetool-x86_64.AppImage 某某.AppDir
+./appimagetool-x86_64.AppImage some.AppDir
 ```
 
 详细用法：
@@ -35,10 +35,10 @@ chmod a+x appimagetool-x86_64.AppImage
 如果你想手动生成一个AppImage，你可以：
 
 ```
-mksquashfs 你的.AppDir 你的.squashfs -root-owned -noappend
-cat runtime >> 你的.AppImage
-cat 你的.squashfs >> 你的.AppImage
-chmod a+x 你的.AppImage
+mksquashfs Your.AppDir Your.squashfs -root-owned -noappend
+cat runtime >> Your.AppImage
+cat Your.squashfs >> Your.AppImage
+chmod a+x Your.AppImage
 ```
 
 # appimagetool usage
