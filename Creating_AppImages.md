@@ -1,32 +1,32 @@
-## 创建AppImages
+## 创建AppImage
 
 创建AppImage的一般工作流程涉及以下步骤：
 
-1. __收集合适的二进制文件__ 如果应用程序已经编译完成，则可以使用现有的二进制文件（例如：包含在.tar .gz，deb或rpm包中的二进制文件）。请注意，二进制文件编译环境绝不能比你的编译环境发行版更新（如果你的工作环境是Ubuntu 9.10，你不应该使用在Ubuntu 10.04上编译的二进制文件）。使用上游发行版用于AppImages特殊构建可能是有利的，尽管这不是必需的。
+1. __收集合适的二进制文件__ 如果应用程序是已编译的，则可以使用现有的二进制文件（例如：包含在.tar.gz，deb或rpm包中的二进制文件）。请注意，二进制文件的编译环境绝不能比你现有的更新（如果你的工作环境是Ubuntu 9.10，你不应该使用Ubuntu 10.04或更新系统上编译的二进制文件）。对于上游项目(指应用程序开发方，译者注)，为AppImage专门编译一份二进制是有利(于构建)的，尽管这不是必需的。
 
-2. __收集所有依赖的二进制文件__ 收集你的期望支持的 **基本** 操作系统所没有的那部分。例如，如果你期望支持Ubuntu，Fedora和openSUSE，那么你需要收集你的应用程序运行所需单Ubuntu，Fedora和openSUSE所需库和其他依赖项的合集。
+2. __收集所有合适的依赖项二进制文件__ 收集你期望支持的 **基本** 操作系统(运行应用程序)所缺的所有依赖。例如，如果你期望支持Ubuntu，Fedora和openSUSE，那么你需要收集你的应用程序运行所缺在Ubuntu，Fedora和openSUSE的依赖库(.so文件，译者注)和其他依赖项的合集。
 
 3. __根据二进制文件创建一个可用的AppDir文件夹__ 文件夹名称一般命名为xxx.AppDir(xxx根据二进制文件或个人喜好而定)，打包AppImage前先执行文件夹内AppRun确保应用程序在你的工作环境是正常运行的。
 
-4. __把AppDir文件夹转换成AppImage__ 这将你的xxx.AppDir文件夹内的内容压缩成一个自挂载和自执行的文件。
+4. __把AppDir文件夹转换成AppImage__ 将你的xxx.AppDir文件夹内的内容压缩成单一的自挂载和自执行AppImage文件。
 
-5. __测试你的AppImage__ 在所有期望支持的 **基础** 操作系统测试打包好的AppImage程序。这一步非常重要，各种发行版的都有细微差异。大多数情况下刚好AppImages可以在各种发行版上运行，但这种情况一般不会自动发生，还需要仔细的手动调整才会完美支持。
+5. __测试你的AppImage__ 在所有期望支持的 **基础** 操作系统测试打包好的AppImage程序。这一步非常重要，每个发行版都有细微差异。大多数情况下AppImages可以在各种发行版上运行，但这种情况一般不会自动发生，还需要仔细的手动调整才会完美支持。
 
 理论上可以手动完成上述步骤，但AppImageKit内提供的工具会减轻你的工作量。
 
-现在，实际上有多种不同的方法来生成应用程序的AppImage：
+现在，实际上有多种不同的方法来生成AppImage格式应用程序：
 
-**使用 Open Build Service**。建议将此方法用在开源项目上，因为它允许你利用现有的开放式构建服务基础架构，安全和许可证遵从性流程。请参阅 https://github.com/probonopd/AppImageKit/wiki/Using-Open-Build-Service 以了解如何使用它。
+**使用 Open Build Service** 建议将此方法用于开源项目，因为它允许你利用现有的Open Build Service基础设施、安全性和协议许可流程。请参阅 https://github.com/probonopd/AppImageKit/wiki/Using-Open-Build-Service 了解如何使用它。
 
-如果使用Open Build Service不是你的选择，还有其他方法可以生成AppImages：
+如果你不想使用Open Build Service，还有其他方法可以生成AppImages：
 
-1. **转换现有的二进制包**。如果你已经有最新的软件包，这个方法可能是最简单的，理想的情况是 earlier 或 trusty ppa  或者debian的oldstable源的包。在这种情况下，你只要可以编写一个小`.yml`文件就可以了，很多工作都是由AppImage自动完成的。 [这个脚本](https://raw.githubusercontent.com/probonopd/AppImages/master/recipes/meta/Recipe)可以运行.yml文件。 [见示例](https://github.com/probonopd/AppImages/tree/master/recipes/meta) **或**
+1. **转换现有的二进制包**。如果你已经有最新的软件包，这个方法可能是最简单的，理想的情况是 earlier 或 trusty ppa  或者debian的oldstable源的包。在这种情况下，你只要可以编写一个小`.yml`文件就可以了，很多工作都是由AppImage自动完成的。 [这个脚本](https://raw.githubusercontent.com/probonopd/AppImages/master/recipes/meta/Recipe)可以运行.yml文件。 [参见示例](https://github.com/probonopd/AppImages/tree/master/recipes/meta) **或**
 
-2. **将你的Travis CI版本打包为AppImages**。 如果你已经在 Travis CI 上持续构建，这个选项可能是最简单的。在这种情况下，你可以编写一个小的脚本文件，很多工作都是由AppImage自动完成的。 [见示例](https://github.com/search?utf8=%E2%9C%93&q=%22Package+the+binaries+built+on+Travis-CI+as+an+AppImage%22&type=Code&ref=searchresults) **或**
+2. **将你的Travis CI版本打包为AppImages**。 如果你已经在 Travis CI 上持续构建，这个选项可能是最简单的。在这种情况下，你可以编写一个小的脚本文件，很多工作都是由AppImage自动完成的。 [参见示例](https://github.com/search?utf8=%E2%9C%93&q=%22Package+the+binaries+built+on+Travis-CI+as+an+AppImage%22&type=Code&ref=searchresults) **或**
 
 3. **用linuxdeployqt运行Qt应用程序**。如果你有一个基于Qt的应用程序，这个选项可能是最简单的。在这种情况下，你可能已经在使用`windeployqt`和`macdeployqt`，现在可以使用`linuxdeployqt`与`-appimage`参数运行，很多工作都是由AppImage自动完成的。[参见示例](//github.com/coryo/amphetype2/blob/2d41de3b0c19ab9286672ff0d6a7c11eadc13d9c/.travis/deploy.sh) **或**
 
-4. **使用 electron-builder**。如果你有一个基于Electron的应用程序，这个选项可能是最简单的。在这种情况下，将AppImage定义为Linux的目标（在最新版本的electron-builder中是默认的），很多工作都是由AppImage自动完成的的。 [见示例](https://github.com/search?utf8=%E2%9C%93&q=electron-builder+linux+target+appimage&type=Code&ref=searchresults)**或**
+4. **使用 electron-builder**。如果你有一个基于Electron的应用程序，这个选项可能是最简单的。在这种情况下，将AppImage定义为Linux的目标（在最新版本的electron-builder中是默认的），很多工作都是由AppImage自动完成的的。 [参见示例](https://github.com/search?utf8=%E2%9C%93&q=electron-builder+linux+target+appimage&type=Code&ref=searchresults)**或**
 
 5. **手动创建一个AppDir** 再把它变成一个AppImage。先看下面的例子，再看关于将某些应用程序或应用程序类型绑定为AppImages的例子，或者从右侧的**页面**菜单中查看示例。
 
@@ -50,7 +50,7 @@ AppRun 文件可以是脚本或可执行文件。它设置所需的环境变量�
 
 你的二进制文件 myapp 不得包含任何硬编码的路径，以防止其被重定位。你可以运行 `strings MyApp.AppDir/usr/bin/myapp | grep /usr` 。如果返回一些东西，那么你需要编程修改你的应用程序（例如，使用[binreloc](https://github.com/ximion/binreloc)，或者用`QString QCoreApplication::applicationDirPath()` ）。如果你不想更改应用程序的源代码和/或不想重新编译应用程序，也可以使用命令`sed -i -e 's|/usr|././|g' MyApp.AppDir/usr/bin/myapp`修补二进制文件。通常只要应用程序没有执行`chdir()`就没为题，因为这可能会使`././`不再指向`$APPDIR/usr`。你可以运行`strace -echdir -f ./AppRun`来查看应用程序是否调用了`chdir()`（99％的GUI应用程序没有）。
 
-另请参阅 https://www.gnu.org/software/gnulib/manual/html_node/Supporting-Relocation.html 。长期以来，GNU软件包软件包无法重定位扽问题折磨了许多用户。relocatable-prog模块旨在简化GNU程序可重定位的过程。
+另请参阅 https://www.gnu.org/software/gnulib/manual/html_node/Supporting-Relocation.html 。长期以来，GNU软件包无法重定位的问题折磨了许多用户。relocatable-prog模块旨在简化GNU程序可重定位的过程。
 
 __注意：__ 对于应用程序依赖的任何助手二进制文件和/或库也是如此。你可以用 `cd MyApp.AppDir/usr/ ; find . -type f -exec sed -i -e 's|/usr|././|g' {} \; ; cd -`，这会用`././`替换所有`/usr`。
 
@@ -86,9 +86,9 @@ Categories=Utilities;
 failed to initialize: /lib/tls/i686/cmov/libc.so.6: version `GLIBC_2.11' not found
 ```
 
-那么二进制文件是在一个比你试图运行的系统更新的系统上编译的。你应该使用在旧系统上编译的二进制文件。不幸的是，复杂的是，发行版通常只在最新的系统上编译最新版本的应用程序，这意味着你将很难找到在旧版系统上运行一些比较前沿的软件。解决这个问题的方法是在不太新的基础系统上自己编译依赖关系，和/或使用[LibcWrapGenerator]（https://github.com/probonopd/AppImageKit/tree/master/LibcWrapGenerator）。
+那么二进制文件是在一个比你试图运行的系统更新的系统上编译的。你应该使用在旧系统上编译的二进制文件。不幸的是，复杂的是，发行版通常只在最新的系统上编译最新版本的应用程序，这意味着你将很难找到在旧版系统上运行一些比较前沿的软件。解决这个问题的方法是在不太新的基础系统上自己编译依赖关系，或使用[LibcWrapGenerator](https://github.com/probonopd/AppImageKit/tree/master/LibcWrapGenerator)。
 
-当为Subsurface制作AppImages时，我使用__CentOS 6__得到了很好的结果。这个发行版本不是最新的（CentOS的当前major版本减1），而[EPEL](https://fedoraproject.org/wiki/EPEL)和[devtools-2](http://people.centos.org/tru/devtools-2/)（Red Hat Developer Toolset 2的社区版本）中也有最新的Qt和现代编译器。当使用它进行编译时，我发现生成的二进制文件在各种系统上运行，包括 __debian oldstable__ （wheezy）。
+当为Subsurface制作AppImages时，我使用 __CentOS 6__ 得到了很好的结果。这个发行版本不是最新的（CentOS的当前major版本减1），而[EPEL](https://fedoraproject.org/wiki/EPEL)和[devtools-2](http://people.centos.org/tru/devtools-2/)（Red Hat Developer Toolset 2的社区版本）中也有最新的Qt和现代编译器。当使用它进行编译时，我发现生成的二进制文件在各种系统上运行，包括 __debian oldstable__ （wheezy）。
 
 ### libstdc++.so.6
 
@@ -117,11 +117,11 @@ sudo ./AppImageAssistant.AppDir/testappimage /path/to/elementary-0.2-20110926.is
 
 ### 我可以建立armhf或arm64 AppImages吗？
 
-__是__，你可以编译这些体系结构的AppImageKit工具。 [Open Build Service](https://github.com/AppImage/AppImageKit/wiki/Using-Open-Build-Service)支持。
+__是__，你可以编译这些体系结构的AppImageKit工具。 [Open Build Service](https://github.com/AppImage/AppImageKit/wiki/Using-Open-Build-Service)提供支持。
 
 ### 我可以建立支持多构架（比如x86_64 + armhf）的AppImages？
 
-__否__，每个体系结构都需要一个AppImage。 [FatELF](https://icculus.org/fatelf/)可以解决这个问题，但是不会合并到主线内核中，所以目前还不是一个选项。
+__否__，每个体系结构都需要一个AppImage。[FatELF](https://icculus.org/fatelf/)可以解决这个问题，但是不会合并到主线内核中，所以目前还不是一个选项。
 
 ## 分发AppImages
 
