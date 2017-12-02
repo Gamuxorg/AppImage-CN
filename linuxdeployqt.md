@@ -2,7 +2,7 @@
 
 `linuxdeployqt`是一个在Linux下为Qt应用部署的工具，将应用程序作为标的，并复制应用程序依赖的Qt库和插件。这可以使用[fpm](https://github.com/probonopd/linuxdeployqt/issues/9)将跨平台的deb和rpm包转化为[AppImage](http://appimage.org/)。
 
-##与macdeployqt的差异
+## 与macdeployqt的差异
 这个工具在概念上基于Qt工具包中的的[Mac部署工具](http://doc.qt.io/qt-5/osx-deployment.html)，macdeployqt，但是在逻辑上进行了略微的调整，加入了Linux所需的其他工具。
 
 * 代替macOS的`.app`包，这会为Linux生成一个[AppDir](http://rox.sourceforge.net/desktop/AppDirs.html)
