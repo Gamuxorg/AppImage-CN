@@ -44,15 +44,15 @@ MyApp.AppDir/myapp.png
 MyApp.AppDir/usr/bin/myapp
 MyApp.AppDir/usr/lib/libfoo.so.0
 ```
-AppRun 文件可以是脚本或可执行文件。它设置所需的环境变量，例如 `$ PATH` 并启动有效载荷应用程序。你可以编写你自己的，但是在大多数情况下最简单的（也是最不容易出差错的）是用这个版本库中的预编译的版本。
+AppRun 文件可以是脚本或可执行文件。它设置所需的环境变量，例如 `$PATH` 并启动应用程序。你可以编写你自己的脚本，但是在大多数情况下最简单的（也是最不容易出差错的）是用版本库中的预编译的版本。
 
-当然，如果你的应用程序不需要库，或者你的应用程序需要的所有库都已包含在你所针对的每个基本操作系统中，那么你可以省去库。
+当然，如果你的应用程序不需要依赖库，或者你的应用程序需要的所有依赖库都已包含在你所针对的每个基本操作系统中，那么你可以省略收集依赖库。
 
-你的二进制文件 myapp 不得包含任何硬编码的路径，以防止其被重定位。你可以运行 `strings MyApp.AppDir/usr/bin/myapp | grep /usr` 。如果返回一些东西，那么你需要编程修改你的应用程序（例如，使用[binreloc](https://github.com/ximion/binreloc)，或者用`QString QCoreApplication::applicationDirPath()` ）。如果你不想更改应用程序的源代码和/或不想重新编译应用程序，也可以使用命令`sed -i -e 's|/usr|././|g' MyApp.AppDir/usr/bin/myapp`修补二进制文件。通常只要应用程序没有执行`chdir()`就没为题，因为这可能会使`././`不再指向`$APPDIR/usr`。你可以运行`strace -echdir -f ./AppRun`来查看应用程序是否调用了`chdir()`（99％的GUI应用程序没有）。
+程序的二进制文件 `myapp` 不能包含任何硬编码的路径，以防止其被重定位。你可以运行 `strings MyApp.AppDir/usr/bin/myapp | grep /usr` 。如果返回一些信息，那么你需要修改你的应用程序代码（例如，使用[binreloc](https://github.com/ximion/binreloc)，或者用`QString QCoreApplication::applicationDirPath()` ）。如果你不想更改应用程序的源代码或不想重新编译应用程序，也可以使用命令`sed -i -e 's|/usr|././|g' MyApp.AppDir/usr/bin/myapp`为二进制文件打补丁。通常只要应用程序没有执行`chdir()`就没问题，因为这可能会使`././`不再指向`$APPDIR/usr`。你可以运行`strace -echdir -f ./AppRun`来查看应用程序是否调用了`chdir()`（99％的GUI应用程序都没有）。
 
-另请参阅 https://www.gnu.org/software/gnulib/manual/html_node/Supporting-Relocation.html 。长期以来，GNU软件包无法重定位的问题折磨了许多用户。relocatable-prog模块旨在简化GNU程序可重定位的过程。
+另请参阅 https://www.gnu.org/software/gnulib/manual/html_node/Supporting-Relocation.html 。长期以来，GNU软件包无法重定位的问题折磨了许多用户。relocatable-prog模块旨在简化GNU程序可重定位的工作。
 
-__注意：__ 对于应用程序依赖的任何助手二进制文件和/或库也是如此。你可以用 `cd MyApp.AppDir/usr/ ; find . -type f -exec sed -i -e 's|/usr|././|g' {} \; ; cd -`，这会用`././`替换所有`/usr`。
+__注意：__ 对于应用程序依赖的任何辅助二进制文件和其依赖库也是如此。你可以用 `cd MyApp.AppDir/usr/ ; find . -type f -exec sed -i -e 's|/usr|././|g' {} \; ; cd -`，这会用`././`替换所有`/usr`。
 
 myapp.desktop（至少）应该包含：
 
@@ -65,9 +65,9 @@ Type=Application
 Categories=Utilities;
 ```
 
-一定要选择一个[注册类别](https://standards.freedesktop.org/menu-spec/latest/apa.html)，并确保你的desktop文件用`desktop-file-validate your.desktop`检验了。
+一定要选择一个[注册类别](https://standards.freedesktop.org/menu-spec/latest/apa.html)，并确保你的desktop文件用`desktop-file-validate your.desktop`检验通过。
 
-然后，在AppDir上运行`appimagetool`以将其变成AppImage。你可以从这个仓库的[Releases](https://github.com/probonopd/AppImageKit/releases)获取（这来自AppImage；没错，我们吃我们自己的狗食）。
+然后，在AppDir上运行`appimagetool`以将其转换为AppImage。你可以从此仓库的[Releases](https://github.com/probonopd/AppImageKit/releases)获取（appimagetool.AppImage，这来自AppImage项目。没错，我们吃自己的狗粮）。
 
 ## 创建可移植的AppImages
 
@@ -78,7 +78,7 @@ Categories=Utilities;
 
 ### 在足够老的基本系统上编译二进制文件
 
-不应在最新的基础系统上，而是你的AppImage要运行的最老的基础系统上编译。某些核心库（如glibc）往往会频繁地破坏旧版本基本系统的兼容性，这意味着二进制文件可以运行在较新的版本上，而在比二进制文件编译的版本旧的版本上就运行不了了。
+不应在最新的基础系统上，而是你的AppImage要运行的最老的基础系统上编译。某些核心库（如glibc）往往会破坏旧版本基本系统的兼容性，这意味着二进制文件可以运行在较新的版本上，而在比二进制文件编译的版本旧的版本上就运行不了了。
 
 如果你遇到这样的错误
 
@@ -86,20 +86,19 @@ Categories=Utilities;
 failed to initialize: /lib/tls/i686/cmov/libc.so.6: version `GLIBC_2.11' not found
 ```
 
-那么二进制文件是在一个比你试图运行的系统更新的系统上编译的。你应该使用在旧系统上编译的二进制文件。不幸的是，复杂的是，发行版通常只在最新的系统上编译最新版本的应用程序，这意味着你将很难找到在旧版系统上运行一些比较前沿的软件。解决这个问题的方法是在不太新的基础系统上自己编译依赖关系，或使用[LibcWrapGenerator](https://github.com/probonopd/AppImageKit/tree/master/LibcWrapGenerator)。
+那么二进制文件是在一个比你试图运行的系统更新的系统上编译的。你应该使用在旧系统上编译的二进制文件。不幸和复杂的是，发行版通常只在最新的系统上编译最新版本的应用程序，这意味着你将很难找到在旧版系统上找到一些比较新的软件或软件的新版本。解决这个问题的方法是在不太新的基础系统上自己编译依赖关系，或使用[LibcWrapGenerator](https://github.com/probonopd/AppImageKit/tree/master/LibcWrapGenerator)。
 
-当为Subsurface制作AppImages时，我使用 __CentOS 6__ 得到了很好的结果。这个发行版本不是最新的（CentOS的当前major版本减1），而[EPEL](https://fedoraproject.org/wiki/EPEL)和[devtools-2](http://people.centos.org/tru/devtools-2/)（Red Hat Developer Toolset 2的社区版本）中也有最新的Qt和现代编译器。当使用它进行编译时，我发现生成的二进制文件在各种系统上运行，包括 __debian oldstable__ （wheezy）。
+当为Subsurface制作AppImage时，我使用 __CentOS 6__ 得到了很好的结果。这个发行版本不是最新的（CentOS的当前major版本减1），而[EPEL](https://fedoraproject.org/wiki/EPEL)和[devtools-2](http://people.centos.org/tru/devtools-2/)（Red Hat Developer Toolset 2的社区版本）中也有最新的Qt和现代编译器。当使用它进行编译时，我发现生成的二进制文件可在各种系统上运行，包括 __debian oldstable__ （wheezy）。
 
 ### libstdc++.so.6
 
-一些项目需要更新的C++标准来构建它们。为了保持glibc依赖性低，你可以
-在较旧的发行版上构建一个更新的GCC版本，并使用它来编译该项目。不过这么一来这个项目就需要一个更新的`libstdc++.so.6`。但捆绑`libstdc++.so.6`在大多数情况下会破坏安装到系统中的发行版的兼容性。所以盲目捆绑库是不可靠的。虽然在少数情况下这主要是`libstdc++.so.6`的一个问题，但这也可能发生在`libgcc_s.so.1`中。这是因为这两个库都是GCC的一部分。你必须先知道主机系统的库版本，再在应用程序启动之前决定是否使用捆绑库。这可以用[AppImageKit-checkrt](https://github.com/darealshinji/AppImageKit-checkrt/)处理。它将在AppImage或AppDir中搜索`usr/optional/libstdc++/libstdc++.so.6`和`usr/optional/libgcc_s/libgcc_s.so.1`，找到之后会与系统的版本进行比较，必要时将路径追加到`LD_LIBRARY_PATH`前面。
+一些项目需要更新的C++标准来构建它们。为了保持glibc依赖性低，你可以在较旧的发行版上构建一个更新的GCC版本，并使用它来编译该项目。不过这么一来这个项目就需要一个更新的`libstdc++.so.6`。但集成`libstdc++.so.6`在大多数情况下会破坏安装到系统中的发行版的兼容性。所以盲目集成依赖库是不可靠的。虽然在少数情况下这主要是`libstdc++.so.6`的一个问题，但这也可能发生在`libgcc_s.so.1`中。这是因为这两个库都是GCC的一部分。你必须先知道主机系统的库版本，再在应用程序启动之前决定是否集成依赖库。这可以用[AppImageKit-checkrt](https://github.com/darealshinji/AppImageKit-checkrt/)处理。它将在AppImage或AppDir中搜索`usr/optional/libstdc++/libstdc++.so.6`和`usr/optional/libgcc_s/libgcc_s.so.1`，找到之后会与系统的版本进行比较，必要时将路径追加到`LD_LIBRARY_PATH`前面。
 
 ### 测试
 
-为了确保AppImage在预期的基础系统上运行，应该对它们进行彻底的测试。以下测试程序既高效又有效：获取以前版本的Ubuntu，Fedora和openSUSE Live CD并在那里测试你的AppImage。使用三个最大的发行版增加了AppImage在其他发行版上运行的机会。使用以前（当前减1）版本确保你的最终用户可能尚未升级到最新版本，但仍可以运行你的AppImage。使用Live CD的优点是，与安装的系统不同，你始终拥有一个可以轻松复制的出厂状态的系统。大多数开发人员只是在他们的主要工作系统上测试他们的软件，这些系统往往通过安装额外的软件包进行大量的定制。通过在Live CD上进行测试，你可以确定最终用户将获得尽可能最好的体验。
+为了确保AppImage在预期的基础系统上运行，应该对它们进行彻底的测试。以下测试程序既高效又有效：获取之前版本（当前版本的上一个版本，译者注）的Ubuntu，Fedora和openSUSE Live CD并在那里测试你的AppImage。在三个最大的发行版测试增加了AppImage在其他发行版上运行的可能性。使用之前的版本确保你的用户可能尚未升级到最新版本，但仍可以运行你的AppImage。使用Live CD的优点是，与安装的系统不同，你始终拥有一个可以轻松复制的纯净状态的系统。大多数开发人员只是在他们的主要工作系统上测试他们的软件，这些系统往往通过安装额外的软件包进行了大量的定制。通过在Live CD上进行测试，你可以确定最终用户将获得尽可能最好的体验。
 
-我 loop-mount Live CD的ISO，chroot进去，然后在那里运行AppImage。这样，我需要每个支持的基本系统（分发）大约700 MB，并且只需换一个ISO文件即可轻松升级到较新的版本。下面的脚本为 Ubuntu-like的（基于Casper的）和Fedora-like的（基于Dract的）Live ISO 自动完成这些：
+我通常使用Live CD的ISO，挂载并chroot进入，然后在那里运行AppImage。这样，对于每一个需要支持的基本系统（发行版）只需占用大约700 MB空间，并且只需换一个ISO文件即可轻松升级到较新的版本。下面的脚本为 Ubuntu-like（基于Casper的）和Fedora-like的（基于Dract的）Live ISO 自动完成这些：
 
 ```
 sudo ./AppImageAssistant.AppDir/testappimage /path/to/elementary-0.2-20110926.iso ./AppImageAssistant.AppImage
@@ -107,25 +106,25 @@ sudo ./AppImageAssistant.AppDir/testappimage /path/to/elementary-0.2-20110926.is
 
 ## 常见的错误
 
-请 __不要__ 将AppImage放入另一个档案，例如`.zip`或`.tar.gz`。尽管避免用户必须设置权限可能是很诱人的，但是这会破坏与可选的“appimaged”守护进程的桌面集成等等。此外，AppImage格式的优点是你永远不需要解压任何东西。此外，将AppImage封装成某种形式的存档，导致无法将AppImage添加到https://github.com/AppImage/AppImageHub 上的可用AppImage的中央目录中。
+请 __不要__ 将AppImage归档压缩到另一个文件内，例如`.zip`或`.tar.gz`。尽管这避免了用户需要设置运行权限，但是这会破坏与可选的“appimaged”守护进程的桌面集成等等。此外，AppImage格式的优点是你永远不需要解压任何东西。此外，将AppImage封装成某种形式的压缩包，导致无法将AppImage添加到https://github.com/AppImage/AppImageHub ，这是AppImage的应用中心。
 
 ## 环境变量
 
-默认情况下，AppRun在执行有效载荷应用程序之前设置一些变量，如`LD_LIBRARY_PATH`。虽然在大多数情况下这是足够的，但是如果有效载荷应用程序启动驻留在基本系统中的其他应用程序，也就是在AppImage之外，可能会导致问题。 KDevelop就是这样一个应用程序的例子。在这些情况下，[appimage-exec-wrapper](https://cgit.kde.org/scratch/brauch/appimage-exec-wrapper.git/)库可以与AppImage分发机制一起使用。将库放在AppImage的某处，并在启动应用程序之前指向`LD_PRELOAD`。每当应用程序通过`execv()`或`execve()`调用一个子进程时，这个包装程序就会拦截这个调用，看看子进程是否位于捆绑的AppDir之外。如果是这样的话，那么在启动该过程之前，包装器将试图撤销对环境变量所做的任何更改，因为你可能不打算使用，例如你先前为你的应用程序设置的`LD_LIBRARY_PATH`。另一方面，[linuxdeployqt](https://github.com/probonopd/linuxdeployqt)并没有设置`LD_LIBRARY_PATH`而是[在$ORIGIN设置库的RPATH和程序的依赖](https://nixos.org/patchelf.html)。
+通常情况下，AppRun在执行应用程序之前需设置一些变量，如`LD_LIBRARY_PATH`。虽然在大多数情况下这就足够了，但是如果应用程序需调用在基本系统中的其他应用程序，也就是在AppImage之外，可能会导致问题。 KDevelop就是这样一个应用程序的例子。在这些情况下，[appimage-exec-wrapper](https://cgit.kde.org/scratch/brauch/appimage-exec-wrapper.git/)库可以与AppImage分发机制一起使用。将库放在AppImage的某处，并在启动应用程序之前指向`LD_PRELOAD`。每当应用程序通过`execv()`或`execve()`调用一个子进程时，这个包装程序就会拦截这个调用，看看子进程是否位于捆绑的AppDir之外。如果是这样的话，那么在启动该过程之前，包装器将试图撤销对环境变量所做的任何更改，因为你可能不打算使用，例如你先前为你的应用程序设置的`LD_LIBRARY_PATH`。另一方面，[linuxdeployqt](https://github.com/probonopd/linuxdeployqt)并没有设置`LD_LIBRARY_PATH`而是[在$ORIGIN设置库的RPATH和程序的依赖](https://nixos.org/patchelf.html)。
 
 ## 处理器架构
 
-### 我可以建立armhf或arm64 AppImages吗？
+### 我可以建立armhf或arm64 AppImage吗？
 
-__是__，你可以编译这些体系结构的AppImageKit工具。 [Open Build Service](https://github.com/AppImage/AppImageKit/wiki/Using-Open-Build-Service)提供支持。
+__是__，你可以编译这些体系架构的AppImageKit工具。 [Open Build Service](https://github.com/AppImage/AppImageKit/wiki/Using-Open-Build-Service)提供支持。
 
-### 我可以建立支持多构架（比如x86_64 + armhf）的AppImages？
+### 我可以建立支持多构架（比如x86_64 + armhf）的AppImage？
 
-__否__，每个体系结构都需要一个AppImage。[FatELF](https://icculus.org/fatelf/)可以解决这个问题，但是不会合并到主线内核中，所以目前还不是一个选项。
+__否__，每个体系结构都需要一个AppImage。[FatELF](https://icculus.org/fatelf/)可以解决这个问题，但是不会合并到主线内核中，所以目前还不是一个可用选项。
 
-## 分发AppImages
+## 分发AppImage
 
-即使在开放源代码许可下，以源代码或二进制形式分发和/或使用代码也可能产生一定的法律责任，例如分发相应的源代码，为GPL许可的二进制文件构建指令，以及显示版权声明和免责声明。作为AppImage应用程序的作者，你有责任遵守你在AppImage中包含的任何第三方依赖关系的所有许可证，并确保他们的许可证和源代码在需要时一起提供与发行二进制文件。 AppImageKit本身是在宽松的MIT许可下发布的。
+即使在开放源代码许可下，以源代码或二进制形式分发或使用代码也会产生一定的法律义务，例如发布相应的源代码，为GPL许可的二进制文件编写说明，以及显示版权声明和免责声明。作为AppImage应用程序的作者，你有责任遵守你在AppImage中包含的任何第三方依赖关系的所有许可证，并确保他们的许可证和源代码在需要时一起提供与发行二进制文件。 AppImageKit本身是在宽松的MIT许可下发布的。
 
 ## Creating AppImages
 
