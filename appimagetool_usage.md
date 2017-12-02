@@ -1,6 +1,6 @@
 ## appimagetool的使用方法
 
-`appimagetool`用于把现有的`AppDir(目录)`生成一个AppImage。一些更高级别的工具，如[`linuxdeployqt`](https://github.com/probonopd/linuxdeployqt)等也在使用它。预编译版本可以在[GitHub Releases](https://github.com/AppImage/AppImageKit/releases)上找到。
+`appimagetool`用于把现有的`AppDir`(目录)生成一个AppImage。一些更高级别的工具，如[`linuxdeployqt`](https://github.com/probonopd/linuxdeployqt)等也在使用它。预编译版本可以在[GitHub Releases](https://github.com/AppImage/AppImageKit/releases)上找到。
 
 ```
 wget "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage"
@@ -22,12 +22,12 @@ chmod a+x appimagetool-x86_64.AppImage
   -h，--help                 显示帮助选项
 
 应用选项：
-  -l，--list                 列出SOURCE AppImage中的文件
-  -u，--updateinformation    嵌入更新信息STRING; 如果安装了 zsyncmake，则生成 zsync 文件
+  -l, --list                 列出SOURCE AppImage中的文件
+  -u, --updateinformation    嵌入更新信息STRING; 如果安装了 zsyncmake，则生成 zsync 文件
   --bintray-user             Bintray用户名
   --bintray-repo             Bintray存储库
   --version                  显示版本号
-  -v，--verbose              产生详细的输出
+  -v, --verbose              产生详细的输出
   -s, --sign                 用 gpg2 签名
   -n, --no-appstream         不检查AppStream元数据
 ```
