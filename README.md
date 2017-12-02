@@ -6,6 +6,7 @@
 2. [什么是AppImage？](appimage.md)
 3. [AppImage的使用方法](appimage_usage.md)
 3. [appimagetool的使用方法](appimagetool_usage.md)
+4. [创建AppImage](Creating_AppImages.md)
 
 ## 加入翻译
 1. pull requests
