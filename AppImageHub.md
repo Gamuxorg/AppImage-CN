@@ -8,7 +8,7 @@ https://appimage.github.io/
 
 ## 这不是...
 
-* __分发渠道__ 。 AppImageHub __不分发AppImages__或提供下载。它只是链接到各自作者的下载页面，从那里用户将能够下载AppImages。它也__不跟踪版本__，仅仅是诸如“release”、“beta”，“nightly”，“continuous”（由上游应用程序作者定义）等各种 channels。我们认为，试图跟踪中央存储库中的所有版本是徒劳的，因为它不能扩展。
+* __appimage分发渠道__ 。 AppImageHub __不分发AppImages__或提供下载。它只是链接到各自作者的下载页面，从那里用户将能够下载AppImages。它也__不跟踪版本__，仅仅是诸如“release”、“beta”，“nightly”，“continuous”（由上游应用程序作者定义）等各种 channels。我们认为，试图跟踪中央存储库中的所有版本是徒劳的，因为它不能扩展。
 
 ## 用户故事
 
