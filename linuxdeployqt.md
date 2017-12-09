@@ -1,6 +1,6 @@
 # linuxdeployqt
 
-`linuxdeployqt`是一个在Linux下为Qt应用部署的工具，将应用程序作为标的，并复制应用程序依赖的Qt库和插件。这可以使用[fpm](https://github.com/probonopd/linuxdeployqt/issues/9)将跨平台的deb和rpm包转化为[AppImage](http://appimage.org/)。
+`linuxdeployqt`是一个在Linux下为Qt应用部署的工具，将应用程序作为输入，并将复制的自包含的Qt库和插件和应用程序捆成一束。这可以使用[fpm](https://github.com/probonopd/linuxdeployqt/issues/9)将跨平台的deb和rpm包转化为[AppImage](http://appimage.org/)。
 
 ## 与macdeployqt的差异
 这个工具在概念上基于Qt工具包中的的[Mac部署工具](http://doc.qt.io/qt-5/osx-deployment.html)，macdeployqt，但是在逻辑上进行了略微的调整，加入了Linux所需的其他工具。
@@ -10,7 +10,7 @@
 
 ## 已知的问题
 
-__可能还没有能够完全正常工作.__ 有关已知问题，参见[GitHub问题](https://github.com/probonopd/linuxdeployqt/issues)。请仔细使用，以输出最详细日志模式运行，提交issues并pull requests。我们对您的帮助表示感谢。
+__可能还不能完全正常工作.__ 有关已知问题，参见[GitHub问题](https://github.com/probonopd/linuxdeployqt/issues)。请仔细使用，以输出最详细日志模式运行，提交issues并pull requests。我们对您的帮助表示感谢。
 
 ## 安装
 
@@ -180,7 +180,7 @@ qmake PREFIX=/usr CONFIG+=use_qt_paths
 - 可以选择GPG2 - 签署你的AppImages（在文件内）
 - 在Live ISOs上工作
 - 双启动多个发行版时可以使用相同的AppImages
-- 可以使用列在AppImage的[AppImageHub]（https://appimage.github.io/apps）主目录中
+- 可以展示在AppImage的[AppImageHub]（https://appimage.github.io/apps）主目录中
 - 可以使用“--appimage-extract”参数作为自解压压缩归档
 
 [这里是一个概述]（https://appimage.github.io/apps）已经分发上游提供的官方AppImages项目。
