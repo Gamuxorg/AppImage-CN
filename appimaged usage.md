@@ -53,7 +53,7 @@ systemctl --user start appimaged
 
 ```
 
- __注意：__ 可能需要重新启动（或者`xkill`）dash命令行，nautilus，来识别第一次运行`appimaged`之前不存在的新目录。另外，在appimaged运行一次后它应该足以登出会话并重新登录。
+ __注意：__ 可能需要重新启动（或者`xkill`）dash命令行，nautilus，来识别第一次运行`appimaged`之前不存在的新目录。另外，在appimaged运行一次后应该注销并重新登录。
 
 如果你的`$PATH`上有`AppImageUpdate`，那么它也可以做到这一点：
 

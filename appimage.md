@@ -14,8 +14,8 @@ __AppImageKit__ 是AppImage的构建工具包，提供了`appimagetool`和`appim
 - 不需要解压或安装
 - 不需要root权限（通常在Debian及其衍生版你需要sudo apt install来安装软件并需要输入密码）
 - 不会改变系统的依赖库
-- 开箱即用，无需安装运行时（使用snap和flatpak却需要）
-- 可选择桌面与`appimaged`集成（注册快捷方式等）
+- 开箱即用，无需安装运行库（使用snap和flatpak却需要）
+- 可选的`appimaged`桌面集成功能（注册快捷方式等）
 - 可以二进制增量更新，例如，用于连续构建（仅下载二进制比较）的AppImageUpdate工具
 - 可以使用GPG2 - （在文件内）签署你的AppImage应用
 - 在Live ISOs上运行
