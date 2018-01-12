@@ -5,7 +5,7 @@ email: 345865759@163.com
 description: >
   AppImage中文文档，基于jekyll-doc-theme模板修改。
 
-baseurl: false # the subpath of your site, e.g. /blog/
+baseurl:  # the subpath of your site, e.g. /blog/
 url: http://doc.appimage.cn # the base hostname & protocol for your site
 git_address: https://github.com/Gamuxorg/AppImages
 git_edit_address: https://github.com/aksakalli/jekyll-doc-theme/blob/gh-pages
