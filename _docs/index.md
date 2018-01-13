@@ -1,5 +1,5 @@
 ---
-title: Welcome
+title: 起始
 permalink: /docs/home/
 redirect_from: /index.html
 ---
