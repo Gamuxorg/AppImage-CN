@@ -4,7 +4,7 @@ permalink: /docs/home/
 redirect_from: /index.html
 ---
 
-# AppImage中文文档
+### AppImage中文文档
 
 本系列文档是用Markdown编写的(`.md`)，是AppImage开发所在的GitHub.com上各种文档的大多数集合。中文文档github地址在[这里](https://github.com/Gamuxorg/AppImage-CN/tree/master/_docs),官方英文文档地址在[这里](https://github.com/AppImage/AppImageKit/wiki)，欢迎参加建设文档。
 
