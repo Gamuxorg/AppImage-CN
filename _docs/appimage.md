@@ -1,4 +1,10 @@
-# 什么是AppImage？
+---
+title: 什么是AppImage？
+permalink: /docs/appimage/
+---
+
+
+### 什么是AppImage？
 
 __AppImage__ 是一种把应用打包成单一文件的格式，允许在各种不同的目标系统（基础系统(Debian、RHEL等)，发行版(Ubuntu、Deepin等)）上运行，无需进一步修改。
 
@@ -29,39 +35,3 @@ __AppImageKit__ 是AppImage的构建工具包，提供了`appimagetool`和`appim
 这里是官方上游已分发的AppImage格式应用的[[概览](https://appimage.github.io/apps)]。
 
 如果您有任何问题，请到irc.freenode.net上的#AppImage频道进行询问。
-
-# What is AppImage?
-
-The __AppImage__ format is a format for packaging applications in a way that allows them to
-run on a variety of different target systems (base operating systems, distributions) without further modification. 
-
-https://en.wikipedia.org/wiki/AppImage
-
-__AppImageKit__  is  a  concrete  implementation  of  the  AppImage  format  and  provides  tools such as `appimagetool` and `appimaged` for conveniently handling AppImages.
-
-`appimagetool` converts an AppDir into a self-mounting filesystem image. `appimaged` is a daemon that handles registering and unregistering AppImages with the system (e.g., menu entries, icons, MIME types, binary delta updates, and such).
-
-Providing an [AppImage](http://appimage.org/) for distributing application has, among others, these advantages:
-- Applications packaged as an AppImage can run on many distributions (including Ubuntu, Fedora, openSUSE, CentOS, elementaryOS, Linux Mint, and others)
-- One app = one file = super simple for users: just download one AppImage file, [make it executable](http://discourse.appimage.org/t/how-to-make-an-appimage-executable/80), and run
-- No unpacking or installation necessary
-- No root needed
-- No system libraries changed
-- Works out of the box, no installation of runtimes needed
-- Optional desktop integration with `appimaged`
-- Optional binary delta updates, e.g., for continuous builds (only download the binary diff) using AppImageUpdate
-- Can optionally GPG2-sign your AppImages (inside the file)
-- Works on Live ISOs
-- Can use the same AppImages when dual-booting multiple distributions
-- Can be listed in the [AppImageHub](https://appimage.github.io/apps) central directory of available AppImages
-- Can double as a self-extracting compressed archive with the `--appimage-extract` parameter
-
-[Here is an overview](https://appimage.github.io/apps) of projects that are already distributing upstream-provided, official AppImages.
-
-If you have questions, AppImage developers are on #AppImage on irc.freenode.net.
-
----
-### 目录
-1. [AppImage中文文档](aaa_index.md)
-2. [什么是AppImage？](appimage.md)
-3. [AppImage的使用方法](appimage_usage.md)
