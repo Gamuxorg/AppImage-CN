@@ -1,23 +1,15 @@
 # AppImage-CN
-<font size=3>AppImage中文文档，源自官方英文文档。官方团队将源文档进行了粗略的Google机翻，[Gamux社区](https://www.linuxgame.cn)进行校对和整理。目前文档还在整理中。</font>
+<font size=3>AppImage中文文档，源自官方英文文档。官方团队将源文档进行了粗略的Google机翻，[Gamux社区](https://www.linuxgame.cn)和[AppImage中文社区](https://appimage.cn/)（实际是一拨人）进行校对和整理。目前文档还在整理中。</font>
 
-## 目录
-1. [AppImage中文文档](aaa_index.md)
-2. [什么是AppImage？](appimage.md)
-3. [AppImage的使用方法](appimage_usage.md)
-3. [appimagetool的使用方法](appimagetool_usage.md)
-4. [创建AppImage](Creating_AppImages.md)
-5. [从deb包或ppa构建AppImage](pkg2appimage.md)
-
-## 加入翻译
+## 加入翻译的方法
 1. pull requests
 2. 提交issues提示翻译组
-3. 加入QQ群274328087申请team remember资格（拥有push权限），是的，我们羞耻的使用QQ作为沟通工具（捂脸），当然，我们也把AppImage作者拉入了QQ群。
+3. 加入QQ群274328087（拥有push权限）或IRC上FreeNode服务器的#appimage-zh频道或Telegram上的gamux-zh频道找管理员鸡君申请team remember资格。
 
 ## AppImage社区
-1. IRC的Freenode服务器的#appimage频道
-2. QQ群274328087，中文AppImage爱好者组织。
-3. [官方AppImage论坛](https://discourse.appimage.org/)或[官方GitHub项目页](https://github.com/AppImage/AppImageKit)。
+1. (官方英文)IRC的Freenode服务器的#appimage频道/(非官方中文)
+2. [官方AppImage论坛](https://discourse.appimage.org/)
+3. [中文AppImage论坛](https://bbs.appimage.cn/)
 
 ## 文本协议
-本文档使用MIT协议。
+文档内容使用MIT协议发布。
