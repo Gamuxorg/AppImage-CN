@@ -1,3 +1,8 @@
+---
+title: AppImage的使用方法
+permalink: /docs/appimage-usage/
+---
+
 ## AppImage的使用方法
 
 运行一个AppImage将会挂载文件系统镜像，并透明地运行包含的应用程序。所以AppImage的使用通常应该等于它包含的应用程序的使用。但是，如本文所说，他还有其他特殊功能。如果你收到的AppImgae不支持这些选项，请让AppImage的作者使用最新的`appimagetool`（或`linuxdeployqt`）重新构建。
