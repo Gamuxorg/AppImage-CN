@@ -1,3 +1,8 @@
+---
+title: appimagetool的使用方法
+permalink: /docs/appimagetool-usage/
+---
+
 ## appimagetool的使用方法
 
 `appimagetool`用于把现有的`AppDir`(目录)生成一个AppImage。一些更高级别的工具，如[`linuxdeployqt`](https://github.com/probonopd/linuxdeployqt)等也在使用它。预编译版本可以在[GitHub Releases](https://github.com/AppImage/AppImageKit/releases)上找到。
@@ -33,49 +38,6 @@ chmod a+x appimagetool-x86_64.AppImage
 ```
 
 如果你想手动生成一个AppImage，你可以：
-
-```
-mksquashfs Your.AppDir Your.squashfs -root-owned -noappend
-cat runtime >> Your.AppImage
-cat Your.squashfs >> Your.AppImage
-chmod a+x Your.AppImage
-```
-
-# appimagetool usage
-
-`appimagetool` is used to generate an AppImage from an existing `AppDir`. Higher-level tools such as [`linuxdeployqt`](https://github.com/probonopd/linuxdeployqt) use it internally. A precompiled version can be found on [GitHub Releases](https://github.com/AppImage/AppImageKit/releases).
-
-```
-wget "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage"
-chmod a+x appimagetool-x86_64.AppImage
-```
-
-Usage in a nutshell, assuming that you already have an [AppDir](https://github.com/AppImage/AppImageSpec/blob/master/draft.md#appdir) in place:
-
-```
-./appimagetool-x86_64.AppImage some.AppDir
-```
-
-Detailed usage:
-```
-Usage:
-  appimagetool [OPTION...] SOURCE [DESTINATION] - Generate, extract, and inspect AppImages
-
-Help Options:
-  -h, --help                  Show help options
-
-Application Options:
-  -l, --list                  List files in SOURCE AppImage
-  -u, --updateinformation     Embed update information STRING; if zsyncmake is installed, generate zsync file
-  --bintray-user              Bintray user name
-  --bintray-repo              Bintray repository
-  --version                   Show version number
-  -v, --verbose               Produce verbose output
-  -s, --sign                  Sign with gpg2
-  -n, --no-appstream          Do not check AppStream metadata
-```
-
-If you want to generate an AppImage manually, you can:
 
 ```
 mksquashfs Your.AppDir Your.squashfs -root-owned -noappend

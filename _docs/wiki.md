@@ -1,3 +1,9 @@
+---
+title: 总结
+permalink: /docs/wiki/
+---
+
+
 # AppImageKit Wiki
 
 每个人都可以在 https://github.com/AppImage/AppImageKit 编辑wiki
@@ -58,7 +64,7 @@ AppImage是一个可下载的Linux文件，其中包含一个应用程序和应�
 4.使用electron-builder，或者
 5.自己编写
 
-更多详情和示例，请参见 https://github.com/probonopd/AppImageKit/wiki/Creating-AppImages 
+更多详情和示例，请参见 https://github.com/probonopd/AppImageKit/wiki/Creating-AppImages
 
 ### 我如何获得支持来帮助打包自己的应用成AppImage？
 
@@ -69,75 +75,3 @@ AppImage是一个可下载的Linux文件，其中包含一个应用程序和应�
 ### 我怎样才能贡献？
 
 对AppImage开发感到好奇？想贡献？我们欢迎解决任何公开问题和（或）其他错误修正和（或）功能添加的请求。在添加复杂功能的情况下，您最好在耗费诸多时间之前联系我们。请参阅我们的[问题列表](https://github.com/probonopd/AppImageKit/issues)，并在`irc.freenode.net`上的`＃AppImage`频道中与我们联系。
-
-# AppImageKit Wiki
-
-Everyone can edit the wiki at https://github.com/AppImage/AppImageKit
-
-## For users
-
-### What is an AppImage?
-
-An AppImage is a downloadable file for Linux that contains an application and everything the application needs to run (e.g., libraries, icons, fonts, translations, etc.) that cannot be reasonably expected to be part of each target system.
-
-### How do I run an AppImage?
-
-[Make it executable](http://discourse.appimage.org/t/how-to-make-an-appimage-executable/80) and double-click it.
-
-### How can I integrate AppImages with the system?
-
-Using the optional `appimaged` daemon, you can easily integrate AppImages with the system. The daemon puts AppImages into the menus, registers MIME types, icons, all on the fly. You can download it from this repository. But it is entirely optional.
-
-### Where can I download AppImages?
-See the "repository" of [upstream-generated AppImages](https://github.com/probonopd/AppImageKit/wiki/AppImages).
-
-### Where do I store my AppImages?
-If you don't want to leave them in `$HOME/Downloads`, then `$HOME/.local/bin` and `$HOME/bin` are good choices:
-* On CentOS/RHEL and Fedora: When you login, the script `$HOME/.bash_profile` is executed and this script adds `$HOME/.local/bin:$HOME/bin` to your path.
-* On Ubuntu: When you login, the script `$HOME/.profile` is executed and this script adds `PATH="$HOME/bin:$HOME/.local/bin"` to your path.
-
-Besides, every other location works, e.g., a USB thumbdrive, a network location, or a CD-ROM, but then the AppImages won't be on your path, which means that you cannot simply type their name into a terminal but have to use the full path.
-
-### Where can I request AppImages?
-If there is no AppImage of your favorite application available, please request it from the author(s) of the application, e.g., as a feature request in the issue tracker of the application. For example, if you would like to see an AppImage of Mozilla Firefox, then please leave a comment at https://bugzilla.mozilla.org/show_bug.cgi?id=1249971. The more people request an AppImage from the upstream authors, the more likely is that an AppImage will be provided.
-
-### Where do I get support?
-
-Please visit http://discourse.appimage.org/. You can log in using your existing Google or GitHub account, no sign-up needed.
-
-## For application developers
-
-### Why should I bundle my application as an AppImage?
-
-By bundling your application as an AppImage, you can provide an official download for Linux like you would do for Windows and macOS where you as the application author can control the end-to-end user experience with no intermediaries between you as the author and your end user. With just one AppImage you can reach users of most Linux distributions. You can provide new download links as often as you like, e.g., for each continuous build.
-
-Also, doing an AppImage has these advantages:
-- Just one format for all major distributions
-- Works out of the box, no installation of runtimes needed
-- No root needed
-- One app = one file = super simple for users
-- Optional(!) desktop integration with `appimaged`
-- Binary delta updates, e.g., for continuous builds (only download the binary diff) using AppImageUpdate
-- Can GPG2-sign your AppImages (inside the file)
-
-### How do I bundle my application as an AppImage?
-
-There are different ways to generate an AppImage of your application:
-
-1. Convert existing binary packages, or
-2. Bundle your Travis CI builds as AppImages, or
-3. Run linuxdeployqt on your Qt application, or
-4. Use electron-builder, or
-5. Write your own
-
-See https://github.com/probonopd/AppImageKit/wiki/Creating-AppImages for more information and examples.
-
-### How do I get support in bundling my app as an AppImage?
-
-We try to help upstream application authors as good as we can, please open an issue in this project. If you are not an upstream application author, then please contact the upstream application author(s) first before you open an issue here.
-
-## For AppImage developers
-
-### How can I contribute?
-
-Curious about AppImage development? Want to contribute? We welcome pull requests addressing any of the open issues and/or other bugfixes and/or feature additions. In the case of complex feature additions, it is best to contact us first, before you spend much time. See our [list of issues](https://github.com/probonopd/AppImageKit/issues) and get in touch with us in `#AppImage` on `irc.freenode.net`.

@@ -3,6 +3,13 @@
   - home
   - appimage
   - appimage-usage
+  - creating-appimages
+  - pkg2appimage
+  - appimagetool-usage
+  - appimaged-usage
+  - appimagehub
+  - linuxdeployqt
+  - wiki
 
 - title: Examples
   docs:
