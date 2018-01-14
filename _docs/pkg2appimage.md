@@ -3,7 +3,7 @@ title: 从deb包或ppa构建AppImage
 permalink: /docs/pkg2appimage/
 ---
 
-## 从deb包或ppa构建AppImage
+### 从deb包或ppa构建AppImage
 
 有 [多种方式](https://github.com/probonopd/AppImageKit/wiki/Creating-AppImages) 生成AppImage。如果你已经有了二进制文件（无论是程序压缩包还是 `.deb` 格式亦或 ppa），那么将这些二进制文件转换为 AppImage 的推荐方法是编写一个 [.yml描述文件](https://github.com/AppImage/AppImages/tree/master/recipes) 并使用 [pkg2appimage](https://github.com/AppImage/AppImages/tree/master/pkg2appimage) 运行它：
 

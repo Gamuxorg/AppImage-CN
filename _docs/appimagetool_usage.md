@@ -3,7 +3,7 @@ title: appimagetool的使用方法
 permalink: /docs/appimagetool-usage/
 ---
 
-## appimagetool的使用方法
+### appimagetool的使用方法
 
 `appimagetool`用于把现有的`AppDir`(目录)生成一个AppImage。一些更高级别的工具，如[`linuxdeployqt`](https://github.com/probonopd/linuxdeployqt)等也在使用它。预编译版本可以在[GitHub Releases](https://github.com/AppImage/AppImageKit/releases)上找到。
 

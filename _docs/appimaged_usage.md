@@ -3,7 +3,7 @@ title: appimaged用法
 permalink: /docs/appimaged-usage/
 ---
 
-## appimaged用法
+### appimaged用法
 
 `appimaged`是一个可选的守护进程，用于监视AppImages的像`~/bin`和`~/Downloads`的位置，如果检测到某些守护进程，则将其注册到系统中，以便它们显示在菜单中，将它们的图标显示出来，关联MIME类型等等。如果它们被删除，它也从系统中再次注销AppImages。如果安装了[firejail](https://github.com/netblue30/firejail)，则会一同运行AppImage。
 

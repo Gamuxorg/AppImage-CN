@@ -4,25 +4,25 @@ permalink: /docs/linuxdeployqt/
 ---
 
 
-# linuxdeployqt
+### linuxdeployqt
 
 `linuxdeployqt`是一个在Linux下为Qt应用部署的工具，将应用程序作为输入，并将复制的自包含的Qt库和插件和应用程序捆成一束。这可以使用[fpm](https://github.com/probonopd/linuxdeployqt/issues/9)将跨平台的deb和rpm包转化为[AppImage](http://appimage.org/)。
 
-## 与macdeployqt的差异
+#### 与macdeployqt的差异
 这个工具在概念上基于Qt工具包中的的[Mac部署工具](http://doc.qt.io/qt-5/osx-deployment.html)，macdeployqt，但是在逻辑上进行了略微的调整，加入了Linux所需的其他工具。
 
 * 代替macOS的`.app`包，这会为Linux生成一个[AppDir](http://rox.sourceforge.net/desktop/AppDirs.html)
 * 代替macOS的`.dmg`映像文件，这会产生一个Linux的[AppImage](http://appimage.org/)，与dmg非常相似，但会直接执行包含的应用程序，而不是只打开一个桌面窗口，选择应用的启动位置（MacOS用户应该明白讲的是什么，译者注）
 
-## 已知的问题
+#### 已知的问题
 
 __可能还不能完全正常工作.__ 有关已知问题，参见[GitHub问题](https://github.com/probonopd/linuxdeployqt/issues)。请仔细使用，以输出最详细日志模式运行，提交issues并pull requests。我们对您的帮助表示感谢。
 
-## 安装
+#### 安装
 
 请从[Releases](https://github.com/probonopd/linuxdeployqt/releases)页面下载 __linuxdeployqt-x86_64.AppImage__ 并且运行`chmod a + x`。如果您想从源码编译生成 `linuxdeployqt`，请参阅[BUILDING.md](https://github.com/probonopd/linuxdeployqt/blob/master/BUILDING.md)。
 
-## 用法
+#### 用法
 
 ```
 用法：linuxdeployqt app-binary [options]
@@ -83,7 +83,7 @@ find $HOME /build - * - * _ Qt_ * \（-name“moc_ *” - or - “* .o” - or -
 
 另外，你可以使用`$DESTDIR`。
 
-##使用Linuxdeployqt与Travis CI
+#### 使用Linuxdeployqt与Travis CI
 
 `linuxdeployqt`的常见用例是在`make`命令后面的Travis CI上使用它。以下示例说明如何在Travis CI中使用`linuxdeployqt`。创建一个类似于这个文件的`.travis.yml`文件（一定要定制它，例如，把'APPNAME`改成你的应用程序的名字，因为它是在`.desktop`文件的Name = ）：
 
@@ -167,7 +167,7 @@ qmake PREFIX=/usr CONFIG+=use_qt_paths
 
 不同之处在于你正在构建Qt库，应该将Qt库安装到Qt驻留在你的系统的同一个位置，从`linuxdeployqt`选择它。
 
-### 在GitHub上发送合并请求
+##### 在GitHub上发送合并请求
 
 `linuxdeployqt`非常适合上游应用程序项目，它们可以快速地以二进制形式向Linux用户发布其软件，而且没有太多的开销。如果您希望看到特定的应用程序使用`linuxdeployqt`，那么发送合并请求可能是上游应用程序项目考虑的一个选项。对于合并请求，您可以使用以下模板文本，但一定要将其定制到相关项目中。
 
@@ -196,7 +196,7 @@ __PLEASE注意：__为了这个工作，你需要为你的仓库启用Travis CI�
 
 如果您有任何问题，可以和AppImage开发人员在IRC:irc.freenode.net上的#AppImage频道与其交流。
 ```
-## 使用linuxdeployqt的项目
+#### 使用linuxdeployqt的项目
 
 这些项目已经在使用[Travis CI](http://travis-ci.org/)和linuxdeployqt来提供AppImage的构建：
 - https://github.com/probonopd/ImageMagick
@@ -245,10 +245,10 @@ GitLab上的这个项目使用linuxdeployqt：
 - https://gitlab.com/rpdev/opentodolist/issues/96
 
 
-## 贡献
+#### 贡献
 
 一个非常好的贡献方式就是是将合并请求发送到您希望使用linuxdeployqt的应用程序项目，如上所述。也欢迎您为linuxdeployqt开发本身作出贡献。请在[forum](http://discourse.appimage.org/t/linuxdeployqt-new-linux-deployment-tool-for-qt/57)或使用GitHub问题和Pull Requests进行讨论。
 
-## 联系
+#### 联系
 
 开发者在irc.freenode.net的#AppImage频道
