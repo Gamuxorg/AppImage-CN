@@ -40,7 +40,7 @@ systemctl --user start appimaged
 * /opt
 * /usr/local/bin
 
-运行`appimaged -v`来增加冗长度。
+运行`appimaged -v`来输出详细信息。
 
 详细用法：
 ```
@@ -51,7 +51,7 @@ systemctl --user start appimaged
   -h,--help 显示帮助选项
 
 应用选项：
-  -v,--verbose 冗长
+  -v,--verbose 输出详细信息
   -i,--install 将这个appimaged实例安装到$HOME
   -u,--uninstall 从$HOME中卸载一个appimaged实例
   --version 显示版本号
