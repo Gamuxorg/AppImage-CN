@@ -70,7 +70,7 @@ Type=Application
 Categories=Utilities;
 ```
 
-一定要选择一个[注册类别](https://standards.freedesktop.org/menu-spec/latest/apa.html)，并确保你的desktop文件用`desktop-file-validate your.desktop`检验通过。
+一定要选择一个[注册类别](https://standards.freedesktop.org/menu-spec/latest/apa.html)，并确保你的desktop文件用`desktop-file-validate myapp.desktop`检验通过。
 
 然后，在AppDir上运行`appimagetool`以将其转换为AppImage。你可以从此仓库的[Releases](https://github.com/probonopd/AppImageKit/releases)获取（appimagetool.AppImage，这来自AppImage项目。没错，我们吃自己的狗粮）。
 
