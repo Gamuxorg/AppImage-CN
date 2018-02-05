@@ -8,7 +8,7 @@ redirect_from: /index.html
 
 <iframe src="https://player.youku.com/embed/XMzIyODAwNjQwMA==" width="100%" height="400" frameborder="0" allowfullscreen="true"></iframe>
 
-本系列文档是用Markdown编写的(`.md`)，是AppImage开发所在的GitHub.com上各种文档的大多数集合。中文文档github地址在[这里](https://github.com/Gamuxorg/AppImage-CN/tree/master/_docs),官方英文文档地址在[这里](https://github.com/AppImage/AppImageKit/wiki)，欢迎参加建设文档。
+本系列文档是用Markdown编写的(`.md`)，是AppImage开发所在的GitHub.com上各种文档的主要集合。中文文档github地址在[这里](https://github.com/Gamuxorg/AppImage-CN/tree/master/_docs),官方英文文档地址在[这里](https://github.com/AppImage/AppImageKit/wiki)，欢迎参加建设文档。
 
 如果你看了文档还不够了解AppImage的话，不要害怕提问。由于AppImage的开发速度非常快，部分文档可能已经过时。
 
