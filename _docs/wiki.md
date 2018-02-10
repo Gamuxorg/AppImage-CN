@@ -39,7 +39,7 @@ permalink: /docs/wiki/
 
 请访问[官方论坛](http://discourse.appimage.org/) 。论坛支持Google或GitHub帐户登录，无需注册。
 
-### 对于应用程序开发者而言
+## 对于应用程序开发者而言
 
 ### ![question-logo](https://raw.githubusercontent.com/encharm/Font-Awesome-SVG-PNG/master/black/png/48/question-circle.png)为什么要将我的应用程序打包成AppImage？
 
@@ -70,8 +70,8 @@ permalink: /docs/wiki/
 
 我们尽力帮助上游应用程序作者，请应用作者通过在AppImage项目中新增一个[issue](https://github.com/AppImage/AppImageKit/issues)的方式获得支持。如果您不是上游应用程序作者，在发起issue之前请先联系上游应用程序作者。
 
-### 对于AppImage开发者而言
+## 对于AppImage开发者而言
 
-#### ![question-logo](https://raw.githubusercontent.com/encharm/Font-Awesome-SVG-PNG/master/black/png/48/question-circle.png)如何参与AppImage项目做出贡献？
+### ![question-logo](https://raw.githubusercontent.com/encharm/Font-Awesome-SVG-PNG/master/black/png/48/question-circle.png)如何参与AppImage项目做出贡献？
 
 对AppImage开发感到好奇？想做出自己的贡献？我们欢迎通过`pull requests`方式来解决任何公开问题和（或）其他错误修正和（或）功能的添加。在添加复杂功能的情况前，最好先与官方沟通联系以免徒耗时间。请参阅我们的[问题列表](https://github.com/probonopd/AppImageKit/issues)，并在`irc.freenode.net`上的`＃AppImage`频道中与我们联系。
