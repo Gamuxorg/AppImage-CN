@@ -152,7 +152,7 @@ __是的__，你可以编译适用于这些体系架构的AppImageKit工具。 [
 
 __不行__，每个体系结构都需要一个独立的AppImage结构。[FatELF](https://icculus.org/fatelf/)可以解决这个问题，但是不会合并到主线内核中，所以目前还不是一个可用选项。
 
-#### 分发AppImage应用
+## 分发AppImage应用
 
 我们认同你把AppImage应用下载链接放在下载页里作为Linux程序的解决方案，并且和windows的exe，macos的dmg并列，如下图：
 ![download page example](https://user-images.githubusercontent.com/2480569/35162112-287bff54-fd3a-11e7-8893-139638af600c.png)
