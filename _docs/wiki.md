@@ -25,23 +25,23 @@ permalink: /docs/wiki/
 ### ![question-logo](https://raw.githubusercontent.com/encharm/Font-Awesome-SVG-PNG/master/black/png/48/question-circle.png)哪里可以下载AppImage应用？
 前往[AppImageHub](https://appimage.github.io/apps/)查看所有收录的AppImage应用。
 
-#### ![question-logo](https://raw.githubusercontent.com/encharm/Font-Awesome-SVG-PNG/master/black/png/48/question-circle.png)AppImage应用安放在哪里比较合适？
+### ![question-logo](https://raw.githubusercontent.com/encharm/Font-Awesome-SVG-PNG/master/black/png/48/question-circle.png)AppImage应用安放在哪里比较合适？
 如果你不想把它们放在`$HOME/Downloads`中，那么  `$HOME/.local/bin` 和 `$HOME/bin` 是很好的选择：
 * 在 CentOS/RHEL 和 Fedora 上：脚本`$HOME/.bash_profile`在登录时运行，这个脚本将`$HOME/.local/bin:$HOME/bin`添加到路径中。
 * 在Ubuntu上：脚本`$HOME/.profile`在登录时运行，这个脚本将`PATH="$HOME/bin:$HOME/.local/bin"`添加到路径中。
 
 此外，存储任何其他位置也是可以，例如U盘，网络位置或光盘，但是这样AppImage应用的路径不在环境变量中，意味着不能简单地在终端输入应用名来运行，而必须使用完整的路径。
 
-#### ![question-logo](https://raw.githubusercontent.com/encharm/Font-Awesome-SVG-PNG/master/black/png/48/question-circle.png)我想要的应用没有AppImage打包版本怎么办？
+### ![question-logo](https://raw.githubusercontent.com/encharm/Font-Awesome-SVG-PNG/master/black/png/48/question-circle.png)我想要的应用没有AppImage打包版本怎么办？
 如果您想运行的应用没有AppImage版本，请您向该应用的作者请求，例如您可以使用应用的问题反馈功能进行提议。举个例子，如果您想要Mozilla Firefox的AppImage版本，请在 https://bugzilla.mozilla.org/show_bug.cgi?id=1249971 上留言。向上游作者请求AppImage的人越多，则提供AppImage版本的可能性就越大。
 
-#### ![question-logo](https://raw.githubusercontent.com/encharm/Font-Awesome-SVG-PNG/master/black/png/48/question-circle.png)我在哪里可以得到相关技术支持？
+### ![question-logo](https://raw.githubusercontent.com/encharm/Font-Awesome-SVG-PNG/master/black/png/48/question-circle.png)我在哪里可以得到相关技术支持？
 
 请访问[官方论坛](http://discourse.appimage.org/) 。论坛支持Google或GitHub帐户登录，无需注册。
 
-### ![question-logo](https://raw.githubusercontent.com/encharm/Font-Awesome-SVG-PNG/master/black/png/48/question-circle.png)对于应用程序开发者而言
+### 对于应用程序开发者而言
 
-#### ![question-logo](https://raw.githubusercontent.com/encharm/Font-Awesome-SVG-PNG/master/black/png/48/question-circle.png)为什么要将我的应用程序打包成AppImage？
+### ![question-logo](https://raw.githubusercontent.com/encharm/Font-Awesome-SVG-PNG/master/black/png/48/question-circle.png)为什么要将我的应用程序打包成AppImage？
 
 通过将您的应用程序打包成AppImage，您可以像Windows(exe)和MacOS(dmg)所使用技术方式类似，为Linux用户提供官方的、便捷和简单的软件下载和安装方式，您作为应用程序作者直接掌握端到端的用户体验，而无需任何中介（打包）横亘在开发者您和最终用户之间。只需打包成AppImage格式，就可以连结大多数Linux发行版的用户。您可以随时提供新的下载链接，甚至可以为持续构建的项目提供快速不停的更新。
 
@@ -54,7 +54,7 @@ permalink: /docs/wiki/
 - 二进制增量更新，例如，使用AppImageUpdate用于连续构建时升级应用（只下载二进制增量数据）
 - 可以以GPG2的形式签署您的AppImages（文件内）
 
-#### ![question-logo](https://raw.githubusercontent.com/encharm/Font-Awesome-SVG-PNG/master/black/png/48/question-circle.png)如何将我的应用程序打包为AppImage？
+### ![question-logo](https://raw.githubusercontent.com/encharm/Font-Awesome-SVG-PNG/master/black/png/48/question-circle.png)如何将我的应用程序打包为AppImage？
 
 有下面几种方式生成您的AppImage应用：
 
@@ -66,11 +66,11 @@ permalink: /docs/wiki/
 
 更多详情和示例，请参见 https://github.com/probonopd/AppImageKit/wiki/Creating-AppImages
 
-#### ![question-logo](https://raw.githubusercontent.com/encharm/Font-Awesome-SVG-PNG/master/black/png/48/question-circle.png)打包自己的AppImage应用过程中如何得到官方帮助？
+### ![question-logo](https://raw.githubusercontent.com/encharm/Font-Awesome-SVG-PNG/master/black/png/48/question-circle.png)打包自己的AppImage应用过程中如何得到官方帮助？
 
 我们尽力帮助上游应用程序作者，请应用作者通过在AppImage项目中新增一个[issue](https://github.com/AppImage/AppImageKit/issues)的方式获得支持。如果您不是上游应用程序作者，在发起issue之前请先联系上游应用程序作者。
 
-### ![question-logo](https://raw.githubusercontent.com/encharm/Font-Awesome-SVG-PNG/master/black/png/48/question-circle.png)对于AppImage开发者而言
+### 对于AppImage开发者而言
 
 #### ![question-logo](https://raw.githubusercontent.com/encharm/Font-Awesome-SVG-PNG/master/black/png/48/question-circle.png)如何参与AppImage项目做出贡献？
 
