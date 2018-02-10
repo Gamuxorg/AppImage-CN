@@ -93,7 +93,7 @@ Categories=Utilities;
 
 然后，在AppDir上运行`appimagetool`以将其转换为AppImage。你可以从此仓库的[Releases](https://github.com/probonopd/AppImageKit/releases)获取（appimagetool.AppImage，这来自AppImage项目。没错，我们吃自己的狗粮）。
 
-## 创建可移植的AppImages
+## 创建可移植的AppImage应用
 
 要在大多数系统上运行AppImage应用，需要满足以下条件：
 1. AppImage应用需要包含基本系统环境缺失的所有库和其他依赖项
@@ -120,11 +120,11 @@ failed to initialize: /lib/tls/i686/cmov/libc.so.6: version `GLIBC_2.11' not fou
 
 你可能在考虑是否可以静态地链接某些外部库,请参考Debian项目如下所做的[https://lintian.debian.org/tags/embedded-library.html](https://lintian.debian.org/tags/embedded-library.html)
 
-##### libstdc++.so.6
+#### libstdc++.so.6
 
 一些项目需要更新的C++标准来构建它们。为了保持glibc依赖性低，你可以在较旧的发行版上构建一个更新的GCC版本，并使用它来编译该项目。不过这么一来这个项目就需要一个更新的`libstdc++.so.6`。但集成`libstdc++.so.6`在大多数情况下会破坏安装到系统中的发行版的兼容性。所以盲目集成依赖库是不可靠的。虽然在少数情况下这主要是`libstdc++.so.6`的一个问题，但这也可能发生在`libgcc_s.so.1`中。这是因为这两个库都是GCC的一部分。你必须先知道主机系统的库版本，再在应用程序启动之前决定是否集成依赖库。这可以用[AppImageKit-checkrt](https://github.com/darealshinji/AppImageKit-checkrt/)处理。它将在AppImage或AppDir中搜索`usr/optional/libstdc++/libstdc++.so.6`和`usr/optional/libgcc_s/libgcc_s.so.1`，找到之后会与系统的版本进行比较，必要时将路径追加到`LD_LIBRARY_PATH`前面。
 
-##### 测试
+#### 测试
 
 为了确保AppImage在预期的基础系统环境上运行，应该对它们进行彻底的测试。以下测试程序高效又有效：获取之前版本（当前版本的上一个版本，译者注）的Ubuntu，Fedora和openSUSE Live CD并在那里测试你的AppImage。在三个最大的发行版测试增加了AppImage在其他发行版上运行的可能性。使用之前的版本确保你的用户可能尚未升级到最新版本，但仍可以运行你的AppImage。使用Live CD的优点是，与安装的系统不同，你始终拥有一个可以轻松复制的纯净状态的系统。大多数开发人员只是在他们的主要工作系统上测试他们的软件，这些系统往往通过安装额外的软件包进行了大量的定制。通过在Live CD上进行测试，你可以确定最终用户将获得尽可能最好的体验。
 
