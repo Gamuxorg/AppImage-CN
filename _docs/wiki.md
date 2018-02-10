@@ -58,11 +58,11 @@ permalink: /docs/wiki/
 
 有下面几种方式生成您的AppImage应用：
 
-1.转换现有的二进制包，或者
-2.将您的`Travis CI builds`打包成AppImage应用，或者
-3.使用[linuxdeployqt](https://github.com/probonopd/linuxdeployqt/)工具转换您的Qt应用程序，或者
-4.使用`electron-builder`，或者
-5.自己编写
+ 1.转换现有的二进制包，或者
+ 2.将您的`Travis CI builds`打包成AppImage应用，或者
+ 3.使用[linuxdeployqt](https://github.com/probonopd/linuxdeployqt/)工具转换您的Qt应用程序，或者
+ 4.使用`electron-builder`，或者
+ 5.自己编写
 
 更多详情和示例，请参见 https://github.com/probonopd/AppImageKit/wiki/Creating-AppImages
 
