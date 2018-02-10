@@ -3,7 +3,7 @@ title: 创建AppImage
 permalink: /docs/creating-appimages/
 ---
 [原文链接](https://github.com/AppImage/AppImageKit/wiki/Creating-AppImages)
-## 创建AppImage应用
+## 关于创建AppImage应用方面的介绍
 
 #### 创建AppImage的一般工作流程涉及以下步骤：
 
@@ -28,27 +28,27 @@ permalink: /docs/creating-appimages/
 5. 使用`electron-builder`
 6. 手工创建 AppDir
 
-## 1.Open Build Service (OBS)
+## 1. Open Build Service (OBS)
 
 建议将此方法用于开源项目，因为它允许你利用现有的Open Build Service基础设施、安全性和协议许可流程。请参阅 https://github.com/probonopd/AppImageKit/wiki/Using-Open-Build-Service 了解如何使用它。
 
-## 2.转换现有的二进制包
+## 2. 转换现有的二进制包
 
 如果你已经有最新的软件包，这个方法可能是最简单的，理想的情况是 earlier 或 trusty ppa  或者debian的oldstable源的包。在这种情况下，你只要可以编写一个简单的`.yml`文件就可以了，很多工作都是由AppImage构建脚本自动完成的。 [这个脚本](https://raw.githubusercontent.com/probonopd/AppImages/master/recipes/meta/Recipe)可以运行.yml文件。 [参见示例](https://github.com/probonopd/AppImages/tree/master/recipes/meta)
 
-## 3.将你的Travis CI版本打包为AppImage应用
+## 3. 将你的Travis CI版本打包为AppImage应用
 
 如果你已经在 Travis CI 上进行过持续构建工作，这个选项可能是最简单的。在这种情况下，你可以编写一个小的脚本文件，很多工作都是由AppImage构建脚本自动完成的。 [参见示例](https://github.com/search?utf8=%E2%9C%93&q=%22Package+the+binaries+built+on+Travis-CI+as+an+AppImage%22&type=Code&ref=searchresults)
 
-## 4.适用于QT程序的实用工具linuxdeployqt
+## 4. 适用于QT程序的实用工具linuxdeployqt
 
 如果你的QT程序是采用`cmake``qmake`或者`make`进行源码编译，或者是一个Qt-based型应用程序，这个选项可能是最简单的。在后者的情况下(qt-based)，之前你可能已经在使用`windeployqt`和`macdeployqt`工具了，现在可以用同样的风格来使用`linuxdeployqt`配合`-appimage`参数运行，很多工作都是由AppImage自动完成的。[参见示例](//github.com/coryo/amphetype2/blob/2d41de3b0c19ab9286672ff0d6a7c11eadc13d9c/.travis/deploy.sh)
 
-## 5.使用 electron-builder
+## 5. 使用 electron-builder
 
 如果你有一个基于Electron技术开发的应用程序，这个选项可能是最简单的。在这种情况下，将AppImage定义为Linux的目标（在最新版本的electron-builder中是默认的），很多工作都是由AppImage自动完成的的。 [参见示例](https://github.com/search?utf8=%E2%9C%93&q=electron-builder+linux+target+appimage&type=Code&ref=searchresults)
 
-## 6.手动创建AppDir
+## 6. 手动创建AppDir
 
 手动创建一个AppDir，然后把它转化成一个AppImage应用。先看下面的例子，再看关于将某些应用程序或应用程序类型绑定为AppImages的例子，或者从右侧的**页面**菜单中查看示例。
 
